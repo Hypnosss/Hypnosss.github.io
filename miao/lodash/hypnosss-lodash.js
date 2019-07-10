@@ -92,7 +92,7 @@ var hypnosss = {
 	initial: function a(arr) {
 		return arr.length > 0 ? arr.slice(0, arr.length - 1) : [];
 	},
-	intersection: function a(arrs) {
+	intersection: function a(...arrs) {
 		var hash = {};
 		var ans = [];
 		for(let arr of arrs) {
@@ -126,11 +126,12 @@ var hypnosss = {
 		return arr.length > 0 ? arr[arr.length - 1] : undefined;
 	},
 	lastIndexOf: function a(arr, val, from) {
-		from = from || from == 0 ? from : arr.length - 1;
+		from = from < 0 ? Math.max(0, arr.length + from) : Math.min(arr.length - 1, from);
 		for(let i = from; i > 0; i--) {
 			if(arr[i] == val) {
 				return i;
 			}
 		}
+		return -1;
 	}
 }
