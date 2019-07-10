@@ -154,6 +154,8 @@ var hypnosss = {
 			var temp = arr[start];
 			arr[start] = arr[end];
 			arr[end] = temp;
+			start++;
+			end--;
 		}
 		return arr;
 	},
@@ -161,7 +163,7 @@ var hypnosss = {
 		var start = 0;
 		var end = arr.length - 1;
 		var mid = Math.floor((start+end)/2);
-		while(start<end) {
+		while(start < end - 1) {
 			if(val > arr[mid]) {
 				start = mid;
 				mid = Math.floor((start+end)/2);
