@@ -20,5 +20,23 @@ var hypnosss = {
 			arr2 = arr2.concat(value);
 		}
 		return arr1.filter(arr1mem=>arr2.indexOf(arr1mem) == -1);
+	},
+	drop: function a(arr, num) {
+		console.log(num)
+		return arr.slice(num);
+	},
+	dropRight: function a(arr, num) {
+		if(num && num != 0)
+			num = num || 1;
+		// console.log(arr.length - num)
+		return arr.slice(0, (arr.length - num < 0) ? 0 : (arr.length - num));
+	},
+	fill: function a(arr, value, start, end) {
+		start = start || 0;
+		end = end || arr.length;
+		for(let i = start; i < end; i++) {
+			arr[i] = value;
+		}
+		return arr;
 	}
 }
