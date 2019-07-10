@@ -106,7 +106,7 @@ var hypnosss = {
 		}
 		for(let key in hash) {
 			if(hash[key] == arrs.length) {
-				ans.push(key);
+				ans.push(+key);
 			}
 		}
 		return ans;
@@ -126,6 +126,7 @@ var hypnosss = {
 		return arr.length > 0 ? arr[arr.length - 1] : undefined;
 	},
 	lastIndexOf: function a(arr, val, from) {
+		from = from || from == 0 ? from : arr.length - 1;
 		from = from < 0 ? Math.max(0, arr.length + from) : Math.min(arr.length - 1, from);
 		for(let i = from; i > 0; i--) {
 			if(arr[i] == val) {
