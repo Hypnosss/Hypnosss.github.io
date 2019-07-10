@@ -203,11 +203,13 @@ var hypnosss = {
 		}
 		return ans;
 	},
-	zip: function a(arrs) {
+	zip: function a(...arrs) {
 		var ans = [];
+		// console.log(arrs[0].length)
 		for(let i = 0; i < arrs[0].length; i++) {
 			ans[i] = [];
 			for(let j = 0; j < arrs.length; j++) {
+				// console.log(i, j, arrs[j][i])
 				ans[i][j] = arrs[j][i];
 			}
 		}
