@@ -14,7 +14,11 @@ var hypnosss = {
 	compact: function (ary) {
 		return ary.filter(it => it);
 	},
-	difference: function(arr1, arr2) {
-		return arr1.filter(arr1mem=>arr2.findIndex(arr1mem) == -1);
+	difference: function a(arr1, ...values) {
+		var arr2 = [];
+		for(let value of values) {
+			arr2 = arr2.concat(value);
+		}
+		return arr1.filter(arr1mem=>arr2.indexOf(arr1mem) == -1);
 	}
 }
