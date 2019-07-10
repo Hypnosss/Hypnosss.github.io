@@ -22,7 +22,6 @@ var hypnosss = {
 		return arr1.filter(arr1mem=>arr2.indexOf(arr1mem) == -1);
 	},
 	drop: function a(arr, num) {
-		// console.log(num)
 		return arr.slice((num||num==0)?num:1);
 	},
 	dropRight: function a(arr, num) {
@@ -52,9 +51,11 @@ var hypnosss = {
 	},
 	flattenDeep: function a(arr) {
 		var ans = [];
+		console.log(this)
+		console.log(this.hypnosss)
 		for(let arrmem of arr) {
 			if(Array.isArray(arrmem)) {
-				ans.concat(flattenDeep(arrmem));
+				ans.concat(this.flattenDeep(arrmem));
 			} else {
 				ans.push(arrmem);
 			}
