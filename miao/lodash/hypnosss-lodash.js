@@ -185,9 +185,12 @@ var hypnosss = {
 			}
 		}
 		for(let key in hash) {
-			if(hash[key] == 1) {
+			if(isNaN(+key)){
+				ans.push(key);
+			} else {
 				ans.push(+key);
 			}
+				
 		}
 		return ans;
 	},
@@ -204,7 +207,7 @@ var hypnosss = {
 		var ans = [];
 		for(let i = 0; i < arrs[0].length; i++) {
 			ans[i] = [];
-			for(let j = 0; j < arr.length; j++) {
+			for(let j = 0; j < arrs.length; j++) {
 				ans[i][j] = arrs[j][i];
 			}
 		}
