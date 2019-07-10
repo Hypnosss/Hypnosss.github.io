@@ -13,5 +13,8 @@ var hypnosss = {
 	},
 	compact: function (ary) {
 		return ary.filter(it => it);
-	}	
+	},
+	difference: function(arr1, arr2) {
+		return arr1.filter(arr1mem=>arr2.findIndex(arr1mem) == -1);
+	}
 }
