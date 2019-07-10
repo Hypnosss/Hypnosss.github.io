@@ -172,6 +172,6 @@ var hypnosss = {
 				mid = Math.floor((start+end)/2);
 			}
 		}
-		return mid;
+		return mid + 1;
 	}
 }
