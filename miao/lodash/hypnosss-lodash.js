@@ -26,7 +26,8 @@ var hypnosss = {
 		return arr.slice((num||num==0)?num:1);
 	},
 	dropRight: function a(arr, num) {
-		return arr.slice(0,(num||num==0)?arr.length-num:arr.length-1);
+		var end = (num||num==0)?arr.length-num:arr.length-1;
+		return arr.slice(0,end<0?0:end);
 	},
 	fill: function a(arr, value, start, end) {
 		start = start || 0;
@@ -35,5 +36,19 @@ var hypnosss = {
 			arr[i] = value;
 		}
 		return arr;
+	},
+	flatten: function a(arr) {
+		var ans = [];
+		for(let arrmem of arr) {
+			if(Array.isArray(arrmem)) {
+				for(let i = 0; i < arrmem.length; i++) {
+					ans.push(arrmem[i]);
+				}
+			}
+			else {
+				ans.push(arrmem);
+			}
+		}
+		return ans;
 	}
 }
