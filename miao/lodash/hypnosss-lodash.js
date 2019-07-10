@@ -51,11 +51,9 @@ var hypnosss = {
 	},
 	flattenDeep: function a(arr) {
 		var ans = [];
-		console.log(this)
-		console.log(this.hypnosss)
 		for(let arrmem of arr) {
 			if(Array.isArray(arrmem)) {
-				ans.concat(this.flattenDeep(arrmem));
+				ans = ans.concat(this.flattenDeep(arrmem));
 			} else {
 				ans.push(arrmem);
 			}
@@ -68,7 +66,7 @@ var hypnosss = {
 			ans[i] = arr[i]; 
 		}
 		for(let i = 0; i < depth; i++) {
-			ans = this.hypnosss.flatten(ans);
+			ans = this.flatten(ans);
 		}
 		return ans;
 	}
