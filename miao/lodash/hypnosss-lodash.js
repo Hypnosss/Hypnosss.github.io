@@ -173,5 +173,41 @@ var hypnosss = {
 			}
 		}
 		return mid + 1;
+	},
+	uniq: function a(arr) {
+		var hash = {};
+		var ans = [];
+		for(let arrmem of arr) {
+			if(!hash[arrmem]) {
+				hash[arrmem] = 1;
+			} else {
+				hash[arrmem] ++;
+			}
+		}
+		for(let key in hash) {
+			if(hash[key] == 1) {
+				ans.push(+key);
+			}
+		}
+		return ans;
+	},
+	without: function a(arr, ...vals) {
+		var ans = [];
+		for(arrmem of arr) {
+			if(vals.indexOf(arrmem) == -1) {
+				ans.push(arrmem);
+			}
+		}
+		return ans;
+	},
+	zip: function a(arrs) {
+		var ans = [];
+		for(let i = 0; i < arrs[0].length; i++) {
+			ans[i] = [];
+			for(let j = 0; j < arr.length; j++) {
+				ans[i][j] = arrs[j][i];
+			}
+		}
+		return ans;
 	}
 }
