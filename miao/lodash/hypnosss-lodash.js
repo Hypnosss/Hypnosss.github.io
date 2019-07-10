@@ -44,10 +44,30 @@ var hypnosss = {
 				for(let i = 0; i < arrmem.length; i++) {
 					ans.push(arrmem[i]);
 				}
-			}
-			else {
+			}	else {
 				ans.push(arrmem);
 			}
+		}
+		return ans;
+	},
+	flattenDeep: function a(arr) {
+		var ans = [];
+		for(let arrmem of arr) {
+			if(Array.isArray(arrmem)) {
+				ans.concat(flattenDeep(arrmem));
+			} else {
+				ans.push(arrmem);
+			}
+		}
+		return ans;
+	},
+	flattenDepth: function a(arr, depth) {
+		var ans = [];
+		for(let i = 0; i < arr.length; i++) {
+			ans[i] = arr[i]; 
+		}
+		for(let i = 0; i < depth; i++) {
+			ans = this.hypnosss.flatten(ans);
 		}
 		return ans;
 	}
