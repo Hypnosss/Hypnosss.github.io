@@ -134,5 +134,42 @@ var hypnosss = {
 			}
 		}
 		return -1;
+	},
+	pull: function a(arr, ...vals) {
+		var ans = [];
+		for(let arrmem of arr) {
+			if(vals.indexOf(arrmem) == -1) {
+				ans.push(arrmem);
+			}
+		}
+		return ans;
+	},
+	reverse: function a(arr) {
+		arr = arr || [];
+		if(arr.length <= 1) {
+			return arr;
+		}
+		var start = 0, end = arr.length - 1;
+		while(start < end) {
+			var temp = arr[start];
+			arr[start] = arr[end];
+			arr[end] = temp;
+		}
+		return arr;
+	},
+	sortedIndex: function a(arr, val) {
+		var start = 0;
+		var end = arr.length - 1;
+		var mid = Math.floor((start+end)/2);
+		while(start<end) {
+			if(val > arr[mid]) {
+				start = mid;
+				mid = Math.floor((start+end)/2);
+			} else {
+				end = mid;
+				mid = Math.floor((start+end)/2);
+			}
+		}
+		return mid;
 	}
 }
