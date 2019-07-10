@@ -69,5 +69,68 @@ var hypnosss = {
 			ans = this.flatten(ans);
 		}
 		return ans;
+	},
+	fromPairs: function a(pairs) {
+		var hash = {};
+		for(let pair of pairs) {
+			hash[pair[0]] = pair[1];
+		}
+		return hash;
+	},
+	head: function a(arr) {
+		return arr.length>0?arr[0]:undefined;
+	},
+	indexOf: function a(arr, val, from) {
+		from = from || 0;
+		for(let i = (from < 0 ? arr.length + from : from); i < arr.length; i++) {
+			if(arr[i] == val) {
+				return i;
+			}
+		}
+		return -1;
+	},
+	initial: function a(arr) {
+		return arr.length > 0 ? arr.slice(0, arr.length - 1) : [];
+	},
+	intersection: function a(arrs) {
+		var hash = {};
+		var ans = [];
+		for(let arr of arrs) {
+			for(let arrmem of arr) {
+				if(!hash[arrmem]) {
+					hash[arrmem] = 1;
+				} else {
+					hash[arrmem] ++;
+				}
+			}
+		}
+		for(let key in hash) {
+			if(hash[key] == arrs.length) {
+				ans.push(key);
+			}
+		}
+		return ans;
+	},
+	join: function a(arr, sep) {
+		var ans = "";
+		for(let i = 0; i < arr.length; i++) {
+			if(i == arr.length - 1) {
+				ans += "" + arr[i];
+			} else {
+				ans += "" + arr[i] + sep;
+			}
+		}
+		return ans;
+	},
+	last: function a(arr) {
+		return arr.length > 0 ? arr[arr.length - 1] : undefined;
+	},
+	lastIndexOf: function a(arr, val, from) {
+		from = from || from == 0 ? from : arr.length - 1;
+		for(let i = from; i > 0; i--) {
+			if(arr[i] == val) {
+				return i;
+			}
+		}
 	}
 }
