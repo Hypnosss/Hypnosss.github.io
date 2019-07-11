@@ -208,17 +208,34 @@ var hypnosss = {
 		}
 		return ans;
 	},
-	unzip: function a() {
-		return this.zip();
+	unzip: function a(...arrs) {
+		return this.zip(arrs);
 	},
 	countBy: function a(collection, functionb) {
 		var hash = {};
+		var flag;
+		if(functionb+"" === functionb) {
+			flag = 1//str
+		} else {
+			flag = 0;//fun
+		}
+		console.log(flag)
 		for(let co of collection) {
-			if(!hash[functionb(co)]) {
-				hash[functionb(co)] = 1
+			if(!flag) {
+				if(!hash[functionb(co)]) {
+					hash[functionb(co)] = 1
+				} else {
+					hash[functionb(co)] ++;
+				}
 			} else {
-				hash[functionb(co)] ++;
+				// console.log(co.length)
+				if(!hash[co[functionb]]) {
+					hash[co[functionb]] = 1
+				} else {
+					hash[co[functionb]] ++;
+				}
 			}
+			
 		}
 		return hash;
 	},
