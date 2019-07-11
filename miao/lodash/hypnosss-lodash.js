@@ -283,29 +283,50 @@ var hypnosss = {
 		}
 		return hash;
 	},
-	differenceBy: function a(arr, vals, func) {
-		var map = new Map();
-		var flag = (func + "" === func);
+	differenceBy: function a(arr, ...rest) {
+		var limits = [], func = "", vals = [];
+		if(rest.length > 0) {
+			if(Array.isArray(rest[rest.length - 1])) {
+				for(let i = 0; i < rest.length; i++) {
+					limits[i] = rest[i];
+				} 
+			} else {
+				for(let i = 0; i < rest.length - 1; i++) {
+					limits[i] = rest[i];
+				} 
+				func = rest[rest.length - 1];
+			}
+		}
+		for(let i = 0; i < limits.length; i++) {
+			for(let mem of limits[i]) {
+				vals.push(mem);
+			}
+		}
 
-		if(flag) {//str
+		var map = new Map();
+		var flag = !(func.includes("{") || func.includes("=>"));
+
+		if(flag && func != "") {//str
 			for(let arrmem of arr) {
-				map.set(arrmem.func, arrmem);
+				map.set(arrmem[func], arrmem);
 			}
 			for(let val of vals) {
-				if(map.has(val.func)) {
-					map.delete(val.func);
+				if(map.has(val[func])) {
+					map.delete(val[func]);
 				}
 			}
 		} else {
+			var obj = {};
+			obj.funcc = eval("("+func+")");
 			for(let arrmem of arr) {
-				map.set(func(arrmem), arrmem);
+				map.set(obj.funcc(arrmem), arrmem);
 			}
 			for(let val of vals) {
-				if(map.has(func(val))) {
-					map.delete(func(val));
+				if(map.has(obj.funcc(val))) {
+					map.delete(obj.funcc(val));
 				}
 			}
 		}
-		return map.keys();
+		return [...map.keys()];
 	}
 }
