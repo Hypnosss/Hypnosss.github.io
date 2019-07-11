@@ -407,7 +407,34 @@ var hypnosss = {
 	// isArguments: function a(val) {
 	// 	return val[Symbol.iterator]() && !Array.isArray(val);
 	// },
-	isArray: function (arg) {
+	isArray: function(arg) {
 		return Object.prototype.toString.call(arg) === '[object Array]';
+	},
+	isBoolean: function(arg) {
+		return arg === !!arg;
+	},
+	isNumber: function(arg) {
+		return +arg === arg;
+	},
+	isString: function(arg) {
+		return "" + arg === arg;
+	},
+	max: function(arr) {
+		if(arr) {
+			var max = arr[0];
+			for(let arrmem of arr) {
+				max = arrmem>max?arrmem:max;
+			}
+		}
+		return max;
+	},
+	min: function(arr) {
+		if(arr) {
+			var min = arr[0];
+			for(let arrmem of arr) {
+				min = arrmem<min?arrmem:min;
+			}
+		}
+		return min;
 	}
 }
