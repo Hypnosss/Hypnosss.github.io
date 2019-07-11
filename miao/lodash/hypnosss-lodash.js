@@ -244,19 +244,18 @@ var hypnosss = {
 		return hash;
 	},
 	forEach: function a(collection, functionb) {
-		var obj = {
-			functionbb: eval("(" + functionb + ")")
-		};
-		// var functionb = functionb.toSource();
-		// console.log(typeof(functionb))
-		if(Array.isArray(collection)) {
-			for(let key in collection) {
-				obj.functionbb(collection[key], key);
-			}
-		} else {
-			for(let [keyo,val] in collection) {
-				obj.functionbb(val, keyo);
-			}
-		}
+		// var obj = {
+		// 	functionbb: eval("(" + functionb + ")")
+		// };
+		// if(Array.isArray(collection)) {
+		// 	for(let key in collection) {
+		// 		obj.functionbb(collection[key], key);
+		// 	}
+		// } else {
+		// 	for(let [keyo,val] in collection) {
+		// 		obj.functionbb(val, keyo);
+		// 	}
+		// }
+		return collection;
 	},
 }
