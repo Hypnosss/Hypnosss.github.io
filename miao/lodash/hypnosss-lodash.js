@@ -258,4 +258,29 @@ var hypnosss = {
 		// }
 		return collection;
 	},
+	groupBy: function a() {
+		var hash = {};
+		var flag;
+		if(functionb+"" === functionb) {
+			flag = 1//str
+		} else {
+			flag = 0;//fun
+		}
+		for(let co of collection) {
+			if(!flag) {
+				if(!hash[functionb(co)]) {
+					hash[functionb(co)] = [functionb(co)]
+				} else {
+					hash[functionb(co)].push(functionb(co));
+				}
+			} else {
+				if(!hash[co[functionb]]) {
+					hash[co[functionb]] = [co[functionb]];
+				} else {
+					hash[co[functionb]].push(co[functionb]);
+				}
+			}
+		}
+		return hash;
+	}
 }
