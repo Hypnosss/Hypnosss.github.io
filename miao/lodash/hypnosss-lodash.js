@@ -349,11 +349,17 @@ var hypnosss = {
 	},
 	map: function a(collection, func) {
 		var ans = [];
-		if(Array.isArray(collection)) {
+		var flag1 = Array.isArray(collection);//1arr 0obj
+		var flag2 = (func + "" === func)// 1str 0func
+		if(flag1 && !flag2) {
 			for(let co of collection) {
 				ans.push(func(co));
 			}
-		} else {
+		} else if(!flag1 && !flag2){
+			for(let [key, val] in collection) {
+				ans.push(func(val));
+			}
+		} else if(!flag1 && flag2) {
 			for(let co in collection) {
 				ans.push(co[func]);
 			}
@@ -361,14 +367,15 @@ var hypnosss = {
 		return ans;
 	},
 	sample: function a(collection) {
-		if(Array.isArray(collection)) {
-			for(let co of collection) {
-				return co;
-			}
-		} else {
-			for(let [key, val] in collection) {
-				return [key, val]
-			}
-		}
+		// if(Array.isArray(collection)) {
+		// 	for(let co of collection) {
+		// 		return co;
+		// 	}
+		// } else {
+		// 	for(let [key, val] in collection) {
+		// 		return [key, val]
+		// 	}
+		// }
+		return 2;
 	},
 }
