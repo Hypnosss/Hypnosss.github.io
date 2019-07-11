@@ -284,7 +284,7 @@ var hypnosss = {
 		return hash;
 	},
 	differenceBy: function a(arr, ...rest) {
-		var limits = [], func, vals = [];
+		var limits = [], func, vals = [], ans = [];
 		if(rest.length > 0) {
 			if(Array.isArray(rest[rest.length - 1])) {
 				for(let i = 0; i < rest.length; i++) {
@@ -307,6 +307,7 @@ var hypnosss = {
 		var flag = !!func;
 
 		if(flag && func != "") {//str
+			console.log("str")
 			for(let arrmem of arr) {
 				map.set(arrmem[func], arrmem);
 			}
@@ -315,7 +316,13 @@ var hypnosss = {
 					map.delete(val[func]);
 				}
 			}
+			for(let arrmem of arr) {
+				if(map.has(arrmem[func])) {
+					ans.push(arrmem);
+				}
+			}
 		} else {
+			console.log("func")
 			for(let arrmem of arr) {
 				map.set(func(arrmem), arrmem);
 			}
@@ -324,7 +331,8 @@ var hypnosss = {
 					map.delete(fucc(val));
 				}
 			}
+			ans = [...map.keys()];
 		}
-		return [...map.keys()];
+		return ans;
 	}
 }
