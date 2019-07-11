@@ -405,9 +405,9 @@ var hypnosss = {
 		return len;
 	},
 	isArguments: function a(val) {
-		return (val.[Symbol.iterator]() && !Array.isArray(val))
+		return (val.[Symbol.iterator]() && !Array.isArray(val));
 	},
 	isArray: function (arg) {
-		Object.prototype.toString.call(arg) === '[object Array]'
+		return Object.prototype.toString.call(arg) === '[object Array]';
 	}
 }
