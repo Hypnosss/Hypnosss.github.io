@@ -208,14 +208,12 @@ var hypnosss = {
 		}
 		return ans;
 	},
-	unzip: function a(...arrs) {
+	unzip: function a(arr) {
 		var ans = [];
-		// console.log(arrs[0].length)
-		for(let i = 0; i < arrs[0].length; i++) {
+		for(let i = 0; i < arr[0].length; i++) {
 			ans[i] = [];
-			for(let j = 0; j < arrs.length; j++) {
-				// console.log(i, j, arrs[j][i])
-				ans[i][j] = arrs[j][i];
+			for(let j = 0; j < arr.length; j++) {
+				ans[i][j] = arr[j][i];
 			}
 		}
 		return ans;
