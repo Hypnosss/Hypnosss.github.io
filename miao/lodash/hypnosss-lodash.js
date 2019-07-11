@@ -441,5 +441,20 @@ var hypnosss = {
   },
   isFunction: function(val) {
     return typeof(val) == "function";
+  },
+  isMatch: function(obj1, obj2) {
+    var map = new Map();
+    var total = 0, n = 0;
+    for(let key in obj1) {
+      if(!map.has(key)) {
+        map.set(key, obj1[key]);
+      }
+    }
+    for(let key2 in obj2) {
+      total++;
+      if(map.has(key2) && map.get(key2) == obj1[key])
+        n++
+    }
+    return total == n;
   }
 }
