@@ -198,11 +198,9 @@ var hypnosss = {
 	},
 	zip: function a(...arrs) {
 		var ans = [];
-		// console.log(arrs[0].length)
 		for(let i = 0; i < arrs[0].length; i++) {
 			ans[i] = [];
 			for(let j = 0; j < arrs.length; j++) {
-				// console.log(i, j, arrs[j][i])
 				ans[i][j] = arrs[j][i];
 			}
 		}
@@ -411,7 +409,8 @@ var hypnosss = {
 		return Object.prototype.toString.call(arg) === '[object Array]';
 	},
 	isBoolean: function(arg) {
-		return arg === !!arg;
+		console.log(arg, !!arg, (arg === !!arg))
+		return (arg === !!arg);
 	},
 	isNumber: function(arg) {
 		return +arg === arg;
