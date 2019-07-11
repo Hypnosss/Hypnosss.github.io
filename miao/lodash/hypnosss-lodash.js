@@ -452,8 +452,8 @@ var hypnosss = {
     }
     for(let key2 in obj2) {
       total++;
-      if(map.has(key2) && map.get(key2) == obj1[key])
-        n++
+      if(map.has(key2) && map.get(key2) == obj1[key2])
+        n++;
     }
     return total == n;
   }
