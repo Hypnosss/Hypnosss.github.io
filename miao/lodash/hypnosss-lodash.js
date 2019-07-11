@@ -183,7 +183,7 @@ var hypnosss = {
 			} 
 		}
 		for(let key of hash.keys()) {
-			arr.push(key)
+			ans.push(key)
 		}
 		return ans;
 	},
