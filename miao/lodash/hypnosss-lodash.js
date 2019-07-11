@@ -335,11 +335,12 @@ var hypnosss = {
 					ans.push(arrmem);
 				}
 			}
-		} else {
+		} else {//func
 			console.log("func")
 			for(let arrmem of arr) {
 				map.set(func(arrmem), arrmem);
 			}
+			console.log(map)
 			for(let val of vals) {
 				if(map.has(func(val))) {
 					map.delete(fucc(val));
