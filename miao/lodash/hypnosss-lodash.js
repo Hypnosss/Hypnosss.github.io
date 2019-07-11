@@ -359,7 +359,11 @@ var hypnosss = {
 			} else {//obj in arr
 				if(flag2) { //str
 					for(let co of collection) {
-						ans.push(func.includes(".") ? [func] : co[func]);
+						if(func.includes(".")) {
+							func
+						} else {
+							ans.push(co[func]);
+						}
 					}
 				} else {
 					for(let co of collection) {
@@ -399,5 +403,11 @@ var hypnosss = {
 			len++;
 		}
 		return len;
+	},
+	isArguments: function a(val) {
+		return (val.[Symbol.iterator]() && !Array.isArray(val))
+	},
+	isArray: function (arg) {
+		Object.prototype.toString.call(arg) === '[object Array]'
 	}
 }
