@@ -409,7 +409,7 @@ var hypnosss = {
 		return Object.prototype.toString.call(arg) === '[object Array]';
 	},
 	isBoolean: function(arg) {
-		console.log(arg, !!arg, (arg === !!arg))
+		console.log(arg, !!arg, typeof(arg), (arg === !!arg))
 		return (arg === !!arg);
 	},
 	isNumber: function(arg) {
