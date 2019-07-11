@@ -282,5 +282,30 @@ var hypnosss = {
 			}
 		}
 		return hash;
+	},
+	differenceBy: function a(arr, vals, func) {
+		var map = new Map();
+		var flag = (func + "" === func);
+
+		if(flag) {//str
+			for(let arrmem of arr) {
+				map.set(arrmem.func, arrmem);
+			}
+			for(let val of vals) {
+				if(map.has(val.func)) {
+					map.delete(val.func);
+				}
+			}
+		} else {
+			for(let arrmem of arr) {
+				map.set(func(arrmem), arrmem);
+			}
+			for(let val of vals) {
+				if(map.has(func(val))) {
+					map.delete(func(val));
+				}
+			}
+		}
+		return map.keys();
 	}
 }
