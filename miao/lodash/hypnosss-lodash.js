@@ -258,7 +258,7 @@ var hypnosss = {
 		// }
 		return collection;
 	},
-	groupBy: function a() {
+	groupBy: function a(collection, functionb) {
 		var hash = {};
 		var flag;
 		if(functionb+"" === functionb) {
