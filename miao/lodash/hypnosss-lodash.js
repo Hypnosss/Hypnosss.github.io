@@ -207,5 +207,22 @@ var hypnosss = {
 			}
 		}
 		return ans;
-	}
+	},
+	unzip: function a() {
+		return this.zip();
+	},
+	countBy: function a(collection, functionb) {
+		var hash = {};
+		for(let co of collection) {
+			if(!hash[functionb(co)]) {
+				hash[functionb(co)] = 1
+			} else {
+				hash[functionb(co)] ++;
+			}
+		}
+		return hash;
+	},
+	// flatMap: function a(collection, functionb) {
+
+	// }
 }
