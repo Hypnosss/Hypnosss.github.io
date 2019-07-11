@@ -302,6 +302,9 @@ var hypnosss = {
 				vals.push(mem);
 			}
 		}
+
+		console.log([...rest], func, !func)
+
 		if(!func) {
 			for(let arrmem of arr) {
 				map.set(arrmem, arrmem);
@@ -345,7 +348,7 @@ var hypnosss = {
 			console.log(map)
 			for(let val of vals) {
 				if(map.has(func(val))) {
-					map.delete(fucc(val));
+					map.delete(fuc(val));
 				}
 			}
 			ans = [...map.keys()];
