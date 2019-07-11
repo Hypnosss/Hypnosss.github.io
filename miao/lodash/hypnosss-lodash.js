@@ -302,10 +302,8 @@ var hypnosss = {
 				vals.push(mem);
 			}
 		}
-
 		var map = new Map();
 		var flag = (func+""===func);
-
 		if(!func) {
 			for(let arrmem of arr) {
 				map.set(arrmem, arrmem);
@@ -322,9 +320,7 @@ var hypnosss = {
 			}
 			return ans;
 		}
-
 		if(flag) {//str
-			console.log("str")
 			for(let arrmem of arr) {
 				map.set(arrmem[func], arrmem);
 			}
@@ -339,18 +335,25 @@ var hypnosss = {
 				}
 			}
 		} else {//func
-			// console.log("func")
 			for(let arrmem of arr) {
 				map.set(func(arrmem), arrmem);
 			}
-			console.log(map)
 			for(let val of vals) {
 				if(map.has(func(val))) {
 					map.delete(func(val));
 				}
 			}
-			ans = [...map.keys()];
+			ans = [...map.values()];
 		}
 		return ans;
-	}
+	},
+	dropRightWhile: function a(arr, func) {
+		var ans = [];
+		for(let i = 0; i < arr.length; i++) {
+			if(func(arr[i], i, arr)) {
+				ans.push(arr[i]);
+			}
+		}
+		return ans;
+	},
 }
