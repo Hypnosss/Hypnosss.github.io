@@ -347,13 +347,28 @@ var hypnosss = {
 		}
 		return ans;
 	},
-	dropRightWhile: function a(arr, func) {
+	map: function a(collection, func) {
 		var ans = [];
-		for(let i = 0; i < arr.length; i++) {
-			if(func(arr[i], i, arr)) {
-				ans.push(arr[i]);
+		if(Array.isArray(collection)) {
+			for(let co of collection) {
+				ans.push(func(co));
+			}
+		} else {
+			for(let co in collection) {
+				ans.push(co[func]);
 			}
 		}
 		return ans;
+	},
+	sample: function a(collection) {
+		if(Array.isArray(collection)) {
+			for(let co of collection) {
+				return co;
+			}
+		} else {
+			for(let [key, val] in collection) {
+				return [key, val]
+			}
+		}
 	},
 }
