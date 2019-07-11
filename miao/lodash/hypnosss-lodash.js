@@ -209,7 +209,11 @@ var hypnosss = {
 		return ans;
 	},
 	unzip: function a(...arrs) {
-		return this.zip(arrs);
+		var arrrs = [];
+		for(let i = 0; i < arrs.length; i++) {
+			arrrs[i] = arrs[i];
+		}
+		return this.zip(arrrs);
 	},
 	countBy: function a(collection, functionb) {
 		var hash = {};
