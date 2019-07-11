@@ -353,8 +353,8 @@ var hypnosss = {
 		var flag2 = (func + "" === func)// 1str 0func
 		if(flag1) {
 			if(+collection[0] == collection[0]) {// num in arr
-				for(let co of collection) {
-					ans.push(func(co));
+				for(let i = 0; i < collection.length; i++) {
+					ans.push(func(collection[i], i, collection));
 				}
 			} else {//obj in arr
 				if(flag2) { //str
