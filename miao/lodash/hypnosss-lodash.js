@@ -303,7 +303,8 @@ var hypnosss = {
 			}
 		}
 
-		console.log([...rest], func, !func)
+		var map = new Map();
+		var flag = (func+""===func);
 
 		if(!func) {
 			for(let arrmem of arr) {
@@ -322,9 +323,6 @@ var hypnosss = {
 			return ans;
 		}
 
-		var map = new Map();
-		var flag = (func+""===func);
-
 		if(flag) {//str
 			console.log("str")
 			for(let arrmem of arr) {
@@ -341,14 +339,14 @@ var hypnosss = {
 				}
 			}
 		} else {//func
-			console.log("func")
+			// console.log("func")
 			for(let arrmem of arr) {
 				map.set(func(arrmem), arrmem);
 			}
 			console.log(map)
 			for(let val of vals) {
 				if(map.has(func(val))) {
-					map.delete(fuc(val));
+					map.delete(func(val));
 				}
 			}
 			ans = [...map.keys()];
