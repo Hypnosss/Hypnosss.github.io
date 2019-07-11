@@ -302,9 +302,25 @@ var hypnosss = {
 				vals.push(mem);
 			}
 		}
+		if(!func) {
+			for(let arrmem of arr) {
+				map.set(arrmem, arrmem);
+			}
+			for(let val of vals) {
+				if(map.has(val)) {
+					map.delete(val);
+				}
+			}
+			for(let arrmem of arr) {
+				if(map.has(arrmem)) {
+					ans.push(arrmem);
+				}
+			}
+			return ans;
+		}
 
 		var map = new Map();
-		var flag = !!func;
+		var flag = (func+""===func);
 
 		if(flag) {//str
 			console.log("str")
@@ -318,20 +334,6 @@ var hypnosss = {
 			}
 			for(let arrmem of arr) {
 				if(map.has(arrmem[func])) {
-					ans.push(arrmem);
-				}
-			}
-		} else if(!func) {
-			for(let arrmem of arr) {
-				map.set(arrmem, arrmem);
-			}
-			for(let val of vals) {
-				if(map.has(val)) {
-					map.delete(val);
-				}
-			}
-			for(let arrmem of arr) {
-				if(map.has(arrmem)) {
 					ans.push(arrmem);
 				}
 			}
