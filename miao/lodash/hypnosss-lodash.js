@@ -175,22 +175,15 @@ var hypnosss = {
 		return mid + 1;
 	},
 	uniq: function a(arr) {
-		var hash = {};
+		var hash = new Map();
 		var ans = [];
 		for(let arrmem of arr) {
-			if(!hash[arrmem]) {
-				hash[arrmem] = 1;
-			} else {
-				hash[arrmem] ++;
-			}
+			if(!hash.get(arrmem)) {
+				hash.set(arrmem, 1);
+			} 
 		}
-		for(let key in hash) {
-			if(isNaN(+key)){
-				ans.push(key);
-			} else {
-				ans.push(+key);
-			}
-				
+		for(let key of hash.keys()) {
+			arr.push(key)
 		}
 		return ans;
 	},
