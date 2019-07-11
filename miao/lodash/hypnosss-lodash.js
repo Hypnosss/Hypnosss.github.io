@@ -359,7 +359,7 @@ var hypnosss = {
 			} else {//obj in arr
 				if(flag2) { //str
 					for(let co of collection) {
-						ans.push(co[func]);
+						ans.push(func.includes(".") ? [func] : co[func]);
 					}
 				} else {
 					for(let co of collection) {
@@ -378,22 +378,26 @@ var hypnosss = {
 		}
 		return ans;
 	},
-	sample: function a(collection) {
-		// if(Array.isArray(collection)) {
-		// 	for(let co of collection) {
-		// 		return co;
-		// 	}
-		// } else {
-		// 	for(let [key, val] in collection) {
-		// 		return [key, val]
-		// 	}
-		// }
-		return 2;
-	},
+	// sample: function a(collection) {
+	// 	if(Array.isArray(collection)) {
+	// 		for(let co of collection) {
+	// 			return co;
+	// 		}
+	// 	} else {
+	// 		for(let [key, val] in collection) {
+	// 			return [key, val]
+	// 		}
+	// 	}
+	// 	return 2;
+	// },
 	size: function a(collection) {
 		if(collection + "" === collection || Array.isArray(collection)) {
 			return collection.length;
 		}
-		return collection.size;
+		var len = 0;
+		for(let key in collection) {
+			len++;
+		}
+		return len;
 	}
 }
