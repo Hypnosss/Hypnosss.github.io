@@ -269,15 +269,15 @@ var hypnosss = {
 		for(let co of collection) {
 			if(!flag) {
 				if(!hash[functionb(co)]) {
-					hash[functionb(co)] = [functionb(co)]
+					hash[functionb(co)] = [co]
 				} else {
-					hash[functionb(co)].push(functionb(co));
+					hash[functionb(co)].push(co);
 				}
 			} else {
 				if(!hash[co[functionb]]) {
-					hash[co[functionb]] = [co[functionb]];
+					hash[co[functionb]] = [co];
 				} else {
-					hash[co[functionb]].push(co[functionb]);
+					hash[co[functionb]].push(co);
 				}
 			}
 		}
