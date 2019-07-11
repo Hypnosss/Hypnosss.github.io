@@ -246,7 +246,15 @@ var hypnosss = {
 		}
 		return hash;
 	},
-	// flatMap: function a(collection, functionb) {
-
-	// }
+	forEach: function a(collection, functionb) {
+		if(Array.isArray(collection)) {
+			for(let key in collection) {
+				functionb(collection[key], key);
+			}
+		} else {
+			for(let [keyo,val] in collection) {
+				functionb(val, keyo);
+			}
+		}
+	},
 }
