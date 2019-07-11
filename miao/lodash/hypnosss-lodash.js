@@ -390,4 +390,10 @@ var hypnosss = {
 		// }
 		return 2;
 	},
+	size: function a(collection) {
+		if(collection + "" === collection || Array.isArray(collection)) {
+			return collection.length;
+		}
+		return collection.size;
+	}
 }
