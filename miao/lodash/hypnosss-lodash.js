@@ -226,7 +226,6 @@ var hypnosss = {
 		} else {
 			flag = 0;//fun
 		}
-		console.log(flag)
 		for(let co of collection) {
 			if(!flag) {
 				if(!hash[functionb(co)]) {
@@ -235,25 +234,28 @@ var hypnosss = {
 					hash[functionb(co)] ++;
 				}
 			} else {
-				// console.log(co.length)
 				if(!hash[co[functionb]]) {
 					hash[co[functionb]] = 1
 				} else {
 					hash[co[functionb]] ++;
 				}
 			}
-			
 		}
 		return hash;
 	},
 	forEach: function a(collection, functionb) {
+		var obj = {
+			functionbb: eval("(" + functionb + ")")
+		};
+		// var functionb = functionb.toSource();
+		// console.log(typeof(functionb))
 		if(Array.isArray(collection)) {
 			for(let key in collection) {
-				functionb(collection[key], key);
+				obj.functionbb(collection[key], key);
 			}
 		} else {
 			for(let [keyo,val] in collection) {
-				functionb(val, keyo);
+				obj.functionbb(val, keyo);
 			}
 		}
 	},
