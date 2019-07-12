@@ -617,7 +617,7 @@ var hypnosss = {
   },
   pad: function(str = "", len = 0, chars = " ") {
     var all = Math.ceil((len - str.length) / chars.length);
-    var left = Math.ceil(all / 2);
+    var left = Math.floor(all / 2);
     var right = all - left;
     for(let i = 0; i < left; i++) {
       str = chars + str;
@@ -636,7 +636,7 @@ var hypnosss = {
     str = str.slice(0,len);
     return str;
   },
-  panStart: function(str = "", len = 0, chars = " ") {
+  padStart: function(str = "", len = 0, chars = " ") {
     var all = Math.ceil((len - str.length) / chars.length);
     for(let i = 0; i < all; i++) {
       str = chars + str;
