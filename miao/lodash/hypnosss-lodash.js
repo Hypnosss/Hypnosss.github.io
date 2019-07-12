@@ -531,17 +531,17 @@ var hypnosss = {
     var ans = [];
     var keyArr = Object.keys(obj);
     for(let i = 0; i <= keyArr.length - 1; i++) {
-      if(this.isFunction(obj[keyarr[i]])) {
-        ans.push(keyarr[i]);
+      if(this.isFunction(obj[keyArr[i]])) {
+        ans.push(keyArr[i]);
       }
     }
     return ans;
   },
-  get: function(obj, path, defaultValue) {
-    if(defaultValue) {
-      return defaultValue;
-    }
-  },
+  // get: function(obj, path, defaultValue) {
+  //   if(defaultValue) {
+  //     return defaultValue;
+  //   }
+  // },
   invert: function(obj) {
     var ans = {};
     for(let key in obj) {
@@ -567,5 +567,34 @@ var hypnosss = {
         }
       }
     }
+    return ans;
+  },
+  pick: function(obj, paths) {
+    var ans = {};
+    if(this.isString(paths)) {
+      ans[paths] = obj[paths];
+    } else {
+      for(let path of paths) {
+        ans[path] = obj[path];
+      }
+    }
+    return ans;
+  },
+  omit: function(obj, paths) {
+    var ans = {};
+    if(this.isString(paths)) {
+      for(let key in obj) {
+        if(key != paths) {
+          ans[key] = obj[key];
+        }
+      }
+    } else {
+      for(let key in obj) {
+        if(paths.indexOf(key) == -1) {
+          ans[key] = obj[key];
+        }
+      }
+    }
+    return ans;
   }
 }
