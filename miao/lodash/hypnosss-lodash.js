@@ -409,7 +409,7 @@ var hypnosss = {
     return Object.prototype.toString.call(arg) === '[object Array]';
   },
   isBoolean: function(arg) {
-    return (arg === !!arg);
+    return (arg === !!arg) || arg.toString() == "true" || arg.toString() == "false";
   },
   isNumber: function(arg) {
     return +arg === arg;
@@ -451,6 +451,6 @@ var hypnosss = {
     return val === null;
   },
   isObject: function(val) {
-    return Object.prototype.toString.call(arg) === '[object Object]';
+    return Object.prototype.toString.call(val) === '[object Object]';
   }
 }
