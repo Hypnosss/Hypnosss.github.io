@@ -409,7 +409,6 @@ var hypnosss = {
     return Object.prototype.toString.call(arg) === '[object Array]';
   },
   isBoolean: function(arg) {
-    console.log(arg, !!arg, typeof(arg), (arg === !!arg))
     return (arg === !!arg);
   },
   isNumber: function(arg) {
@@ -442,19 +441,16 @@ var hypnosss = {
   isFunction: function(val) {
     return typeof(val) == "function";
   },
-  isMatch: function(obj1, obj2) {
-    var map = new Map();
-    var total = 0, n = 0;
-    for(let key in obj1) {
-      if(!map.has(key)) {
-        map.set(key, obj1[key]);
-      }
-    }
-    for(let key2 in obj2) {
-      total++;
-      if(map.has(key2) && map.get(key2) == obj1[key2])
-        n++;
-    }
-    return total == n;
+  isNaN: function(val) {
+    return !val || val !== val;
+  },
+  isNil: function(val) {
+    return val === undefined || val === null;
+  },
+  isNull: function(val) {
+    return val === null;
+  },
+  isObject: function(val) {
+    return Object.prototype.toString.call(arg) === '[object Object]';
   }
 }
