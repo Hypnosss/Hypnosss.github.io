@@ -596,5 +596,52 @@ var hypnosss = {
       }
     }
     return ans;
-  }
+  },
+  toPairs: function(obj) {
+    var ans = [];
+    var keyArr = Object.keys(obj);
+    for(let key of keyArr) {
+      ans.push([key, obj[key]]);
+    }
+    return ans;
+  },
+  values: function(obj) {
+    if(this.isString(obj)) {
+      return obj.split("");
+    } else {
+      return Object.values(obj);
+    }
+  },
+  escape: function(str) {
+    return str.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace("'", "&apos;");
+  },
+  pad: function(str = "", len = 0, chars = " ") {
+    var all = Math.ceil((len - str.length) / chars.length);
+    var left = Math.ceil(all / 2);
+    var right = all - left;
+    for(let i = 0; i < left; i++) {
+      str = chars + str;
+    }
+    for(let i = 0; i < right; i++) {
+      str = str + chars;
+    }
+    str = str.slice(0, len);
+    return str;
+  },
+  padEnd: function(str = "", len = 0, chars = " ") {
+    var all = Math.ceil((len - str.length) / chars.length);
+    for(let i = 0; i < all; i++) {
+      str = str + chars;
+    }
+    str = str.slice(0,len);
+    return str;
+  },
+  panStart: function(str = "", len = 0, chars = " ") {
+    var all = Math.ceil((len - str.length) / chars.length);
+    for(let i = 0; i < all; i++) {
+      str = chars + str;
+    }
+    str = str.slice(str.length - len,str.length);
+    return str;
+  },
 }
