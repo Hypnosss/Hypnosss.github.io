@@ -515,16 +515,32 @@ var hypnosss = {
   },
   forOwn: function(obj, func) {
     var keyArr = Object.keys(obj);
-    for(let i = 0; i >= keyArr.length - 1; i--) {
+    for(let i = 0; i <= keyArr.length - 1; i++) {
       func(obj[keyArr[i]], keyArr[i], obj);
     }
     return obj;
   },
   forOwnRight: function(obj, func) {
-   var keyArr = Object.keys(obj);
+    var keyArr = Object.keys(obj);
     for(let i = keyArr.length - 1; i >= 0; i--) {
       func(obj[keyArr[i]], keyArr[i], obj);
     }
     return obj;
   },
+  functions: function(obj) {
+    var ans = [];
+    var keyArr = Object.keys(obj);
+    for(let i = 0; i <= keyArr.length - 1; i++) {
+      if(this.isFunction(obj[keyarr[i]])) {
+        ans.push(keyarr[i]);
+      }
+    }
+    return ans;
+  },
+  get: function(obj, path, defaultValue) {
+    if(defaultValue) {
+      return defaultValue;
+    }
+    
+  }
 }
