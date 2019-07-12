@@ -452,6 +452,6 @@ var hypnosss = {
   },
   isObject: function(val) {
     var valType =  Object.prototype.toString.call(val);
-    return valType.includes("object");
+    return valType.includes("object") && val != null;
   }
 }
