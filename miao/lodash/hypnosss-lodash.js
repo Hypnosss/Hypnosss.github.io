@@ -655,7 +655,17 @@ var hypnosss = {
   unescape: function(str = "") {
     return str.replace("&amp;", "&").replace("&lt;", "<").replace("&gt;", ">").replace("&apos;", "'");
   },
-  range: function([start = 0], end, [step = 1]) {
+  range: function(...rest) {
+    if(rest.length == 1) {
+      end = rest[0];
+    } else if(rest.length == 2) {
+      start = rest[0];
+      end = rest[1];
+    } else if(rest.length == 3) {
+      start = rest[0];
+      end = rest[1];
+      step = rest[2];
+    }
     var ans = [];
     for(let i = start; i != end; i += step) {
       ans.push(i);
