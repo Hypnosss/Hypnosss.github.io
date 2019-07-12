@@ -442,7 +442,7 @@ var hypnosss = {
     return typeof(val) == "function";
   },
   isNaN: function(val) {
-    console.log(typeof(val));
+    // console.log(typeof(val));
     return !val || val !== val;
   },
   isNil: function(val) {
@@ -503,7 +503,7 @@ var hypnosss = {
     return obj;
   },
   forInRight: function(obj, func) {
-    console.log(Object.keys(obj));
+    // console.log(Object.keys(obj));
     var keyArr = [];
     for(let key in obj) {
       keyArr.push(key);
@@ -512,5 +512,19 @@ var hypnosss = {
       func(obj[keyArr[i]], keyArr[i], obj);
     }
     return obj;
-  }
+  },
+  forOwn: function(obj, func) {
+    var keyArr = Object.keys(obj);
+    for(let i = 0; i >= keyArr.length - 1; i--) {
+      func(obj[keyArr[i]], keyArr[i], obj);
+    }
+    return obj;
+  },
+  forOwnRight: function(obj, func) {
+   var keyArr = Object.keys(obj);
+    for(let i = keyArr.length - 1; i >= 0; i--) {
+      func(obj[keyArr[i]], keyArr[i], obj);
+    }
+    return obj;
+  },
 }
