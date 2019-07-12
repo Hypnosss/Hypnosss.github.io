@@ -541,6 +541,31 @@ var hypnosss = {
     if(defaultValue) {
       return defaultValue;
     }
-    
+  },
+  invert: function(obj) {
+    var ans = {};
+    for(let key in obj) {
+      ans[obj[key]] = key;
+    }
+    return ans;
+  },
+  invertBy: function(obj, func) {
+    var ans = {};
+    for(let key in obj) {
+      var val = obj[key];
+      if(func) {
+        if(!ans[func(val)]) {
+          ans[func(val)] = [key];
+        } else {
+          ans[func(val)].push(key);
+        }
+      } else {
+        if(!ans[val]) {
+          ans[val] = [key];
+        } else {
+          ans[val].push(key);
+        }
+      }
+    }
   }
 }
