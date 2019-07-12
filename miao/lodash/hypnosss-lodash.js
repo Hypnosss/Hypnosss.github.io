@@ -656,6 +656,9 @@ var hypnosss = {
     return str.replace("&amp;", "&").replace("&lt;", "<").replace("&gt;", ">").replace("&apos;", "'");
   },
   range: function(...rest) {
+    var start = 0;
+    var end;
+    var step = 1;
     if(rest.length == 1) {
       end = rest[0];
     } else if(rest.length == 2) {
@@ -669,6 +672,14 @@ var hypnosss = {
     var ans = [];
     for(let i = start; i != end; i += step) {
       ans.push(i);
+    }
+    return ans;
+  },
+  times: function(n, func) {
+    var i = 0;
+    var ans = [];
+    while(i < n) {
+      ans.push(func(i++));
     }
     return ans;
   }
