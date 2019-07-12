@@ -442,6 +442,7 @@ var hypnosss = {
     return typeof(val) == "function";
   },
   isNaN: function(val) {
+    console.log(typeof(val));
     return !val || val !== val;
   },
   isNil: function(val) {
@@ -489,7 +490,7 @@ var hypnosss = {
       } else if(left >= 0.5) {
         return val - (val % 1) + 1;
       } else {
-        return val - (val % 1) - 1;
+        return val - (val % 1);
       }
     }
     var ans =  myceil(num * Math.pow(10, pre)) / Math.pow(10, pre);
