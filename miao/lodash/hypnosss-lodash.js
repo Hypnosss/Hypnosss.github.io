@@ -645,4 +645,21 @@ var hypnosss = {
     newstr = newstr.slice(0, len - str.length);
     return newstr + str;
   },
+  repeat: function(str = "", n = 1) {
+    var ans = "";
+    for(let i = 0; i < n; i++) {
+      ans += str;
+    }
+    return ans;
+  },
+  unescape: function(str = "") {
+    return str.replace("&amp;", "&").replace("&lt;", "<").replace("&gt;", ">").replace("&apos;", "'");
+  },
+  range: function([start = 0], end, [step = 1]) {
+    var ans = [];
+    for(let i = start; i != end; i += step) {
+      ans.push(i);
+    }
+    return ans;
+  }
 }
