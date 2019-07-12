@@ -468,6 +468,7 @@ var hypnosss = {
       }
       return ans;
     }
+    return [];
   },
   ceil: function(num, pre = 0) {
     function myceil(val) {
@@ -482,13 +483,16 @@ var hypnosss = {
   },
   round: function(num, pre = 0) {
     function myceil(val) {
-      if(val % 1 == 0) {//整数
+      var left = val % 1;
+      if(left == 0) {//整数
         return val;
+      } else if(left >= 0.5) {
+        return val - (val % 1) + 1;
       } else {
-         return val - (val % 1) + 1;
+        return val - (val % 1) - 1;
       }
     }
-    var ans =  myceil(num / Math.pow(10, pre)) * Math.pow(10, pre);
+    var ans =  myceil(num * Math.pow(10, pre)) / Math.pow(10, pre);
     return ans;
-  }
+  },
 }
