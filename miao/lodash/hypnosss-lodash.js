@@ -637,11 +637,12 @@ var hypnosss = {
     return str;
   },
   padStart: function(str = "", len = 0, chars = " ") {
+    var newstr = "";
     var all = Math.ceil((len - str.length) / chars.length);
     for(let i = 0; i < all; i++) {
-      str = chars + str;
+      newstr = chars + newstr;
     }
-    str = str.slice(str.length - len,str.length);
-    return str;
+    newstr = newstr.slice(0, len - str.length);
+    return newstr + str;
   },
 }
