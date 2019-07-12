@@ -477,6 +477,17 @@ var hypnosss = {
          return val - (val % 1) + 1;
       }
     }
+    var ans =  myceil(num / Math.pow(10, -pre)) * Math.pow(10, -pre);
+    return ans;
+  },
+  round: function(num, pre = 0) {
+    function myceil(val) {
+      if(val % 1 == 0) {//整数
+        return val;
+      } else {
+         return val - (val % 1) + 1;
+      }
+    }
     var ans =  myceil(num / Math.pow(10, pre)) * Math.pow(10, pre);
     return ans;
   }
