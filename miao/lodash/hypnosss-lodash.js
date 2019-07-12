@@ -496,4 +496,21 @@ var hypnosss = {
     var ans =  myceil(num * Math.pow(10, pre)) / Math.pow(10, pre);
     return ans;
   },
+  forIn: function(obj, func) {
+    for(let key in obj) {
+      func(obj[key], key, obj);
+    }
+    return obj;
+  },
+  forInRight: function(obj, func) {
+    console.log(Object.keys(obj));
+    var keyArr = [];
+    for(let key in obj) {
+      keyArr.push(key);
+    }
+    for(let i = keyArr.length - 1; i >= 0; i--) {
+      func(obj[keyArr[i]], keyArr[i], obj);
+    }
+    return obj;
+  }
 }
