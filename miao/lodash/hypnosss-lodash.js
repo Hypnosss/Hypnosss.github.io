@@ -453,5 +453,31 @@ var hypnosss = {
   isObject: function(val) {
     var valType =  Object.prototype.toString.call(val);
     return valType.includes("object") && val != null;
+  },
+  isUndefined: function(val) {
+    return val === undefined;
+  },
+  toArray: function(val) {
+    if(this.isString(val)) {
+      return val.split("");
+    }
+    if(this.isObject(val)) {
+      var ans = [];
+      for(let key in val) {
+        ans.push(val[key]);
+      }
+      return ans;
+    }
+  },
+  ceil: function(num, pre = 0) {
+    function myceil(val) {
+      if(val % 1 == 0) {//整数
+        return val;
+      } else {
+         return val - (val % 1) + 1;
+      }
+    }
+    var ans =  myceil(num / Math.pow(10, pre)) * Math.pow(10, pre);
+    return ans;
   }
 }
