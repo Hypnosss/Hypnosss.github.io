@@ -696,6 +696,7 @@ var hypnosss = {
   uniqueId: function(pre = "") {
     return pre + this.n;
     this.n ++;
+    console.log(this.n);
   },
   n: 0,
   identity: function(...rest) {
@@ -707,7 +708,13 @@ var hypnosss = {
       ans.push(arrmem);
     }
     for(let restmem of rest) {
-      ans.push(restmem);
+      if(Array.isArray(restmem)) {
+        for(let i = 0; i < restmem.length; i++) {
+          ans.push(restmem[i]);
+        }
+      } else {
+        ans.push(restmem);
+      }
     }
     return ans;
   }
