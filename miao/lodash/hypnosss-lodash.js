@@ -676,7 +676,7 @@ var hypnosss = {
     var n = 0;
     for(let i = start; i != end; i += step) {
       ans.push(i);
-      if(end - (start + step) >= end - start) {
+      if(Math.abs(end - i) >= Math.abs(end - start)) {
         n++;
       }
       if(n == 3) {
