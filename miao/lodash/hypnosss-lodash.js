@@ -409,6 +409,9 @@ var hypnosss = {
     return Object.prototype.toString.call(arg) === '[object Array]';
   },
   isBoolean: function(arg) {
+    if(!arg) {
+      return false;
+    }
     return (arg === !!arg) || arg.toString() == "true" || arg.toString() == "false";
   },
   isNumber: function(arg) {
@@ -443,7 +446,7 @@ var hypnosss = {
   },
   isNaN: function(val) {
     // console.log(typeof(val));
-    return !val || val !== val;
+    return !val || val !== val || val.toString() === "NaN";
   },
   isNil: function(val) {
     return val === undefined || val === null;
@@ -717,5 +720,8 @@ var hypnosss = {
       }
     }
     return ans;
+  },
+  negate: function(func) {
+    return func;
   }
 }
