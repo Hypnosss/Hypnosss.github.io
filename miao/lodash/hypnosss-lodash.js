@@ -692,5 +692,10 @@ var hypnosss = {
       ans.push(func(i++));
     }
     return ans;
-  }
+  },
+  uniqueId: function(pre = "") {
+    return pre + this.n;
+    this.n ++;
+  },
+  n: 0,
 }
