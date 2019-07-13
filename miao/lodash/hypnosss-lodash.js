@@ -698,4 +698,17 @@ var hypnosss = {
     this.n ++;
   },
   n: 0,
+  identity: function(...rest) {
+    return rest[0];
+  },
+  concat: function(arr, ...rest) {
+    var ans = [];
+    for(let arrmem of arr) {
+      ans.push(arrmem);
+    }
+    for(let restmem of rest) {
+      ans.push(restmem);
+    }
+    return ans;
+  }
 }
