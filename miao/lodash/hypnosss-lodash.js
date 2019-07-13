@@ -669,9 +669,19 @@ var hypnosss = {
       end = rest[1];
       step = rest[2];
     }
+    if(end < 0 && start == 0) {
+      step = -1;
+    }
     var ans = [];
+    var n = 0;
     for(let i = start; i != end; i += step) {
       ans.push(i);
+      if(end - (start + step) >= end - start) {
+        n++;
+      }
+      if(n == 3) {
+        break;
+      }
     }
     return ans;
   },
