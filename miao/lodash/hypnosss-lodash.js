@@ -164,7 +164,7 @@ var hypnosss = {
     var end = arr.length - 1;
     var mid = Math.floor((start+end)/2);
     while(start < end - 1) {
-      if(val > arr[mid]) {
+      if(val >= arr[mid]) {
         start = mid;
         mid = Math.floor((start+end)/2);
       } else {
@@ -852,6 +852,6 @@ var hypnosss = {
       val = func(val);
     }
     console.log(arr, val);
-    return this.sortedIndex(arr, val) - 1;
-  }
+    return this.sortedIndex(arr, val);
+  },
 }
