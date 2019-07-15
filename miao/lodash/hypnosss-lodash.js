@@ -730,7 +730,8 @@ var hypnosss = {
     return func;
   },
   differenceWith: function(arr, ...rest) {
-    if(typeof(rest[rest.length - 1]) === "Function") {
+    // console.log(rest, typeof(rest[rest.length - 1]))
+    if(typeof(rest[rest.length - 1]) === "function") {
       var func = rest.pop();
     }
     console.log(func, rest);
