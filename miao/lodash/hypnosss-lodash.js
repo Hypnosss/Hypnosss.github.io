@@ -730,17 +730,23 @@ var hypnosss = {
     return func;
   },
   differenceWith: function(arr, ...rest) {
-    console.log(rest)
     if(typeof(rest[rest.length - 1]) === "function") {
       var func = rest.pop();
     }
-    console.log(rest)
+
+    var tempArr = [];
+    for(let restmem of rest) {
+      for(let restmemno of restmem) {
+        tempArr.push(restmemno);
+      }
+    }
+
     var ans = [];
     for(let arrmem of arr) {
       ans.push(arrmem);
     }
-    for(let restmem of rest) {
-      console.log(typeof(rest), restmem)
+    for(let restmem of tempArr) {
+      console.log(typeof(tempArr), restmem)
       for(let i = 0; i < ans.length; i++) {
         console.log(ans[i], restmem, func(ans[i], restmem))
         if(func(ans[i], restmem)) {
@@ -748,7 +754,7 @@ var hypnosss = {
         }
       }
     }
-    console.log(func({'x': 1, 'y': 2}, {'x': 1, 'y': 2}))
+    // console.log(func({'x': 1, 'y': 2}, {'x': 1, 'y': 2}))
     return ans;
   }
 }
