@@ -450,7 +450,6 @@ var hypnosss = {
     return typeof(val) == "function";
   },
   isNaN: function(val) {
-    // console.log(typeof(val));
     return !val || val !== val || val.toString() === "NaN";
   },
   isNil: function(val) {
@@ -511,7 +510,6 @@ var hypnosss = {
     return obj;
   },
   forInRight: function(obj, func) {
-    // console.log(Object.keys(obj));
     var keyArr = [];
     for(let key in obj) {
       keyArr.push(key);
@@ -701,12 +699,6 @@ var hypnosss = {
     }
     return ans;
   },
-  uniqueId: function(pre = "") {
-    return pre + this.n;
-    this.n ++;
-    console.log(this.n);
-  },
-  n: 0,
   identity: function(...rest) {
     return rest[0];
   },
@@ -746,9 +738,7 @@ var hypnosss = {
       ans.push(arrmem);
     }
     for(let restmem of tempArr) {
-      console.log(typeof(tempArr), restmem)
       for(let i = 0; i < ans.length; i++) {
-        console.log(ans[i], restmem, func(ans[i], restmem))
         if(func(ans[i], restmem)) {
           ans = ans.slice(0, i).concat(ans.slice(i+1));
         }
@@ -756,8 +746,10 @@ var hypnosss = {
     }
     return ans;
   },
-  intersectionBy: function(arrs, func) {
+  intersectionBy: function(...rest) {
     var hash = {};
+    var func = rest.pop();
+    var arrs = rest;
     if(func + "" === func) {//str
       for(let arr of arrs) {
         for(let arrmem of arr) {
@@ -809,5 +801,5 @@ var hypnosss = {
       }
       return ans;
     }
-  }
+  },
 }
