@@ -735,23 +735,22 @@ var hypnosss = {
       var func = rest.pop();
     }
     // console.log(func, rest);
-    var arr = [];
+    var ans = [];
     for(let arrmem of arr) {
-      arr.push(arrmem);
+      ans.push(arrmem);
     }
 
     for(let restmem of rest) {
       console.log(restmem);
-      console.log(arr.length, arr);
-      for(let i = 0; i < arr.length; i++) {
-        console.log(func(arr[i], restmem))
-        if(func(arr[i], restmem)) {
-          arr = arr.slice(0, i).concat(arr.slice(i+1));
-          console.log(arr)
+      console.log(ans.length, ans);
+      for(let i = 0; i < ans.length; i++) {
+        console.log(func(ans[i], restmem))
+        if(func(ans[i], restmem)) {
+          ans = ans.slice(0, i).concat(ans.slice(i+1));
         }
       }
     }
 
-    return arr;
+    return ans;
   }
 }
