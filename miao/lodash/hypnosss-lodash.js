@@ -854,4 +854,19 @@ var hypnosss = {
     console.log(arr, val);
     return this.sortedIndex(arr, val);
   },
+  sortedLastIndex: function a(arr, val) {
+    var start = 0;
+    var end = arr.length - 1;
+    var mid = Math.floor((start+end)/2);
+    while(start < end - 1) {
+      if(val > arr[mid]) {
+        start = mid;
+        mid = Math.floor((start+end)/2);
+      } else {
+        end = mid;
+        mid = Math.floor((start+end)/2);
+      }
+    }
+    return mid + 1;
+  }
 }
