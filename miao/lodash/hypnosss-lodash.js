@@ -730,9 +730,11 @@ var hypnosss = {
     return func;
   },
   differenceWith: function(arr, ...rest) {
+    console.log(rest)
     if(typeof(rest[rest.length - 1]) === "function") {
       var func = rest.pop();
     }
+    console.log(rest)
     var ans = [];
     for(let arrmem of arr) {
       ans.push(arrmem);
