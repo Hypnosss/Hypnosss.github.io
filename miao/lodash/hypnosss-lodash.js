@@ -734,7 +734,7 @@ var hypnosss = {
     if(typeof(rest[rest.length - 1]) === "function") {
       var func = rest.pop();
     }
-    console.log(func, rest);
+    // console.log(func, rest);
     var arr = [];
     for(let arrmem of arr) {
       arr.push(arrmem);
@@ -742,6 +742,7 @@ var hypnosss = {
 
     for(let restmem of rest) {
       for(let i = 0; i < arr.length; i++) {
+        console.log(func(arr[i], restmem))
         if(func(arr[i], restmem)) {
           arr = arr.slice(0, i).concat(arr.slice(i+1));
           console.log(arr)
