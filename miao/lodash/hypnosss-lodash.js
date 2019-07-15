@@ -770,7 +770,7 @@ var hypnosss = {
 
       var ans = [];
       for(let arr1mem of arrs[0]) {
-        if(arr1mem[func] == key) {
+        if(hash[func(arr1mem)]) {
           ans.push(arr1mem);
         }
       }
@@ -795,7 +795,7 @@ var hypnosss = {
 
       var ans = [];
       for(let arr1mem of arrs[0]) {
-        if(func(arr1mem) == key) {
+        if(hash[func(arr1mem)]) {
           ans.push(arr1mem);
         }
       }
