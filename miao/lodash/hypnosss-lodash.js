@@ -738,6 +738,7 @@ var hypnosss = {
       ans.push(arrmem);
     }
     for(let restmem of rest) {
+      console.log(typeof(rest), restmem)
       for(let i = 0; i < ans.length; i++) {
         console.log(ans[i], restmem, func(ans[i], restmem))
         if(func(ans[i], restmem)) {
