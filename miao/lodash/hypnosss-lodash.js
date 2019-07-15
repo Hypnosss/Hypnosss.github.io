@@ -751,7 +751,6 @@ var hypnosss = {
     var hash = {};
     var func = rest.pop();
     var arrs = rest;
-    console.log(func, func+""===func, func+""==func)
     if(func + "" === func) { //str
       for(let arr of arrs) {
         for(let arrmem of arr) {
@@ -780,10 +779,8 @@ var hypnosss = {
           }
         }
       }
-      // console.log(hash, keyArr);
       var ans = [];
       for(let arr1mem of arrs[0]) {
-        console.log(arr1mem, hash[func(arr1mem)])
         if(hash[func(arr1mem)] == arrs.length) {
           ans.push(arr1mem);
         }
@@ -852,7 +849,6 @@ var hypnosss = {
       }
       val = func(val);
     }
-    console.log(arr, val);
     return this.sortedIndex(arr, val);
   },
   sortedLastIndex: function a(arr, val) {
