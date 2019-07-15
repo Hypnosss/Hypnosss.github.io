@@ -730,27 +730,21 @@ var hypnosss = {
     return func;
   },
   differenceWith: function(arr, ...rest) {
-    // console.log(rest, typeof(rest[rest.length - 1]))
     if(typeof(rest[rest.length - 1]) === "function") {
       var func = rest.pop();
     }
-    // console.log(func, rest);
     var ans = [];
     for(let arrmem of arr) {
       ans.push(arrmem);
     }
-
     for(let restmem of rest) {
-      console.log(restmem);
-      console.log(ans.length, ans);
       for(let i = 0; i < ans.length; i++) {
-        console.log(func(ans[i], restmem))
         if(func(ans[i], restmem)) {
           ans = ans.slice(0, i).concat(ans.slice(i+1));
         }
       }
     }
-
+    console.log(func({'x': 1, 'y': 2}, {'x': 1, 'y': 2}))
     return ans;
   }
 }
