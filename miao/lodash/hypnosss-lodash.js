@@ -160,6 +160,15 @@ var hypnosss = {
     return arr;
   },
   sortedIndex: function a(arr, val) {
+    if(arr.length == 2) {
+      if(arr[0] > val) {
+        return 0;
+      } else if(arr[1] < val) {
+        return 2;
+      } else {
+        return 1;
+      }
+    }
     var start = 0;
     var end = arr.length - 1;
     var mid = Math.floor((start+end)/2);
@@ -792,9 +801,10 @@ var hypnosss = {
           keyArr.push(key);
         }
       }
-      console.log(hash, keyArr);
+      // console.log(hash, keyArr);
       var ans = [];
       for(let arr1mem of arrs[0]) {
+        console.log(arr1mem, hash[func(arr1mem)])
         if(hash[func(arr1mem)]) {
           ans.push(arr1mem);
         }
