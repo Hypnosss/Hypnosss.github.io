@@ -850,5 +850,19 @@ var hypnosss = {
       }
       return ans;
     }
+  },
+  sortedIndexBy: function (arr, val, func) {
+    if(func + "" == func) {
+      for(let arrmem of arr) {
+        arrmem = arrmem[func];
+      }
+      val = val[func];
+    } else {
+      for(let arrmem of arr) {
+        arrmem = func(arrmem);
+      }
+      val = func(val);
+    }
+    return this.sortedIndex(arr, val);
   }
 }
