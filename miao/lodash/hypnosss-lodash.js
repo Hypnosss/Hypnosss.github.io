@@ -754,7 +754,60 @@ var hypnosss = {
         }
       }
     }
-    // console.log(func({'x': 1, 'y': 2}, {'x': 1, 'y': 2}))
     return ans;
+  },
+  intersectionBy: function(arrs, func) {
+    var hash = {};
+    if(func + "" === func) {//str
+      for(let arr of arrs) {
+        for(let arrmem of arr) {
+          if(!hash[arrmem[func]]) {
+            hash[arrmem[func]] = 1;
+          } else {
+            hash[arrmem[func]] ++;
+          }
+        }
+      }
+
+      var keyArr = [];
+      for(let key in hash) {
+        if(hash[key] == arrs.length) {
+          keyArr.push(key);
+        }
+      }
+
+      var ans = [];
+      for(let arr1mem of arrs[0]) {
+        if(arr1mem[func] == key) {
+          ans.push(arr1mem);
+        }
+      }
+      return ans;
+    } else {
+      for(let arr of arrs) {
+        for(let arrmem of arr) {
+          if(!hash[func(arrmem)]) {
+            hash[func(arrmem)] = 1;
+          } else {
+            hash[func(arrmem)] ++;
+          }
+        }
+      }
+
+      var keyArr = [];
+      for(let key in hash) {
+        if(hash[key] == arrs.length) {
+          keyArr.push(key);
+        }
+      }
+
+      var ans = [];
+      for(let arr1mem of arrs[0]) {
+        if(func(arr1mem) == key) {
+          ans.push(arr1mem);
+        }
+      }
+      return ans;
+    }
   }
 }
