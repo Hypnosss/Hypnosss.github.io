@@ -739,6 +739,7 @@ var hypnosss = {
     }
     for(let restmem of rest) {
       for(let i = 0; i < ans.length; i++) {
+        console.log(ans[i], restmem, func(ans[i], restmem))
         if(func(ans[i], restmem)) {
           ans = ans.slice(0, i).concat(ans.slice(i+1));
         }
