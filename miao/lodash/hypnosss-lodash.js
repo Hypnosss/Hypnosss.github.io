@@ -802,4 +802,11 @@ var hypnosss = {
       return ans;
     }
   },
+  nth: function(arr, n = 0) {
+    if(n >= 0) {
+      return arr[n];
+    } else {
+      return arr[arr.length + n];
+    }
+  }
 }
