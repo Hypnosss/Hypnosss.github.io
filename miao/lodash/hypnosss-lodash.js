@@ -160,15 +160,6 @@ var hypnosss = {
     return arr;
   },
   sortedIndex: function a(arr, val) {
-    if(arr.length == 2) {
-      if(arr[0] > val) {
-        return 0;
-      } else if(arr[1] < val) {
-        return 2;
-      } else {
-        return 1;
-      }
-    }
     var start = 0;
     var end = arr.length - 1;
     var mid = Math.floor((start+end)/2);
@@ -771,15 +762,9 @@ var hypnosss = {
         }
       }
 
-      var keyArr = [];
-      for(let key in hash) {
-        if(hash[key] == arrs.length) {
-          keyArr.push(key);
-        }
-      }
       var ans = [];
       for(let arr1mem of arrs[0]) {
-        if(hash[arr1mem[func]]) {
+        if(hash[arr1mem[func]] == arrs.length) {
           ans.push(arr1mem);
         }
       }
@@ -794,18 +779,11 @@ var hypnosss = {
           }
         }
       }
-
-      var keyArr = [];
-      for(let key in hash) {
-        if(hash[key] == arrs.length) {
-          keyArr.push(key);
-        }
-      }
       // console.log(hash, keyArr);
       var ans = [];
       for(let arr1mem of arrs[0]) {
         console.log(arr1mem, hash[func(arr1mem)])
-        if(hash[func(arr1mem)]) {
+        if(hash[func(arr1mem)] == arrs.length) {
           ans.push(arr1mem);
         }
       }
@@ -874,6 +852,6 @@ var hypnosss = {
       val = func(val);
     }
     console.log(arr, val);
-    return this.sortedIndex(arr, val);
+    return this.sortedIndex(arr, val) - 1;
   }
 }
