@@ -864,6 +864,7 @@ var hypnosss = {
       }
       val = func(val);
     }
+    console.log(arr, val);
     return this.sortedIndex(arr, val);
   }
 }
