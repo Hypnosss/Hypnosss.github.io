@@ -358,7 +358,7 @@ var hypnosss = {
         if(flag2) { //str
           for(let co of collection) {
             if(func.includes(".")) {
-              var tempArr = func.spilt(".");
+              var tempArr = func.split(".");
               var temp = co;
               for(let i = 0; i < tempArr.length; i++) {
                 temp = temp[tempArr[i]];
