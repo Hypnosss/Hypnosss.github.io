@@ -741,6 +741,8 @@ var hypnosss = {
     }
 
     for(let restmem of rest) {
+      console.log(restmem);
+      console.log(arr.length, arr);
       for(let i = 0; i < arr.length; i++) {
         console.log(func(arr[i], restmem))
         if(func(arr[i], restmem)) {
