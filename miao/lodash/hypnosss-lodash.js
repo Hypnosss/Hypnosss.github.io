@@ -750,7 +750,7 @@ var hypnosss = {
     var hash = {};
     var func = rest.pop();
     var arrs = rest;
-    if(func + "" === func) {//str
+    if(func + "" == func) { //str
       for(let arr of arrs) {
         for(let arrmem of arr) {
           if(!hash[arrmem[func]]) {
