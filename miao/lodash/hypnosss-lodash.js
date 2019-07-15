@@ -770,7 +770,7 @@ var hypnosss = {
 
       var ans = [];
       for(let arr1mem of arrs[0]) {
-        if(hash[func(arr1mem)]) {
+        if(hash[func(arr1mem)]  ) {
           ans.push(arr1mem);
         }
       }
@@ -807,6 +807,48 @@ var hypnosss = {
       return arr[n];
     } else {
       return arr[arr.length + n];
+    }
+  },
+  pullAll: function(arr, vals) {
+    var ans = [];
+    for(let arrmem of arr) {
+      if(vals.indexOf(arrmem) == -1) { 
+        ans.push(arrmem);
+      }
+    }
+    return ans;
+  },
+  pullAllBy: function(arr, vals, func) {
+    if(func + "" == func) { //str
+      var todelete = {};
+      for(let val of vals) {
+        if(!todelete[val[func]]) {
+          todelete[val[func]] = 1;
+        }
+      }
+
+      var ans = [];
+      for(let arrmem of arr) {
+        if(!todelete[arrmem[func]]) {
+          ans.push(arrmem);
+        }
+      }
+      return ans;
+    } else {
+      var todelete = {};
+      for(let val of vals) {
+        if(!todelete[func(val)]) {
+          todelete[func(val)] = 1;
+        }
+      }
+
+      var ans = [];
+      for(let arrmem of arr) {
+        if(!todelete[func(arrmem)]) {
+          ans.push(arrmem);
+        }
+      }
+      return ans;
     }
   }
 }
