@@ -733,5 +733,20 @@ var hypnosss = {
     if(typeof(rest[rest.length - 1]) === "Function") {
       var func = rest.pop();
     }
+
+    var arr = [];
+    for(let arrmem of arr) {
+      arr.push(arrmem);
+    }
+
+    for(let restmem of rest) {
+      for(let i = 0; i < arr.length; i++) {
+        if(func(arr[i], restmem)) {
+          arr = arr.slice(0, i).concat(arr.slice(i+1));
+        }
+      }
+    }
+
+    return arr;
   }
 }
