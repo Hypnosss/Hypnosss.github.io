@@ -358,7 +358,12 @@ var hypnosss = {
         if(flag2) { //str
           for(let co of collection) {
             if(func.includes(".")) {
-              func
+              var tempArr = func.spilt(".");
+              var temp = co;
+              for(let i = 0; i < tempArr.length; i++) {
+                temp = temp[tempArr[i]];
+              }
+              ans.push(temp);
             } else {
               ans.push(co[func]);
             }
@@ -723,5 +728,10 @@ var hypnosss = {
   },
   negate: function(func) {
     return func;
+  },
+  differenceWith: function(arr, ...rest) {
+    if(typeof(rest[rest.length - 1]) === "Function") {
+      var func = rest.pop();
+    }
   }
 }
