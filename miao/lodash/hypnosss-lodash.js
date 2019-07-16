@@ -910,5 +910,30 @@ var hypnosss = {
       }
     }
     return [...map.values()]; 
+  },
+  xor: function(...arrs) {
+    var narr = [];
+    for(arr of arrs) {
+      for(arrmem of arr) {
+        narr.push(arrmem);
+      }
+    }
+
+    var map = new Map();
+    for(narrmem of narr) {
+      if(!map.has(narrmem)) {
+        map.set(narrmem, 1);
+      } else {
+        map.set(narrmem, map.get(narrmem) + 1);
+      }
+    }
+
+    var ans = [];
+    for(key of [...map.keys()]) {
+      if(map.get(key) === 1) {
+        ans.push(key);
+      }
+    }
+    return ans;
   }
 }
