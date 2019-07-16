@@ -863,7 +863,7 @@ var hypnosss = {
     }
     return mid;
   },
-  sortedLastIndexBy: function(arr, val, fun) {
+  sortedLastIndexBy: function(arr, val, func) {
     if(this.isString(func)) {
       for(let i = 0; i < arr.length; i++) {
         arr[i] = arr[i][func];
@@ -896,7 +896,7 @@ var hypnosss = {
       for(arr of arrs) {
         for(arrmem of arr) {
           if(!map.has(arrmem[func])) {
-            this.map.set(arrmem[func], arrmem);
+            map.set(arrmem[func], arrmem);
           }
         }
       }
@@ -904,7 +904,7 @@ var hypnosss = {
       for(arr of arrs) {
         for(arrmem of arr) {
           if(!map.has(func(arrmem))) {
-            this.map.set(func(arrmem), arrmem);
+            map.set(func(arrmem), arrmem);
           }
         }
       }
