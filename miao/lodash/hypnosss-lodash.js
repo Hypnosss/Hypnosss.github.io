@@ -952,5 +952,19 @@ var hypnosss = {
       }
     }
     return [...map.values()];
+  },
+  isMatch: function(obj, source) {
+    for(key in source) {
+      if(!this.isObject(source[key])) {
+        if(source[key] != obj[key]) {
+          return false;
+        }
+      } else {
+        if(!isMatch(obj[key], source[key])) {
+          return false;
+        }
+      }
+    }
+    return true;
   }
 }
