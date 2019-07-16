@@ -960,7 +960,7 @@ var hypnosss = {
           return false;
         }
       } else {
-        if(!isMatch(obj[key], source[key])) {
+        if(!whis.isMatch(obj[key], source[key])) {
           return false;
         }
       }
