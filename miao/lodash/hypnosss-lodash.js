@@ -164,14 +164,12 @@ var hypnosss = {
     var end = arr.length - 1;
     var mid = Math.floor((start+end)/2);
     while(start <= end) {
-      // console.log(start, end, mid);
       if(val > arr[mid]) {
         start = mid + 1;
-        mid = Math.floor((start+end)/2);
       } else {
         end = mid - 1;
-        mid = Math.floor((start+end)/2);
       }
+      mid = Math.floor((start+end)/2);
     }
     return mid + 1;
   },
@@ -855,7 +853,7 @@ var hypnosss = {
     var start = 0;
     var end = arr.length - 1;
     var mid = Math.floor((start+end)/2);
-    while(start < end) {
+    while(start <= end) {
       if(val >= arr[mid]) {
         start = mid + 1;
         mid = Math.floor((start+end)/2);
@@ -864,6 +862,6 @@ var hypnosss = {
         mid = Math.floor((start+end)/2);
       }
     }
-    return mid;
+    return mid - 1;
   }
 }
