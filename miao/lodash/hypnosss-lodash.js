@@ -935,5 +935,22 @@ var hypnosss = {
       }
     }
     return ans;
+  },
+  uniqBy: function(arr, func) {
+    var map = new Map();
+    if(this.isString(func)) {
+      for(arrmem of arr) {
+        if(!map.has(arrmem[func])) {
+          map.set(arrmem[func], arrmem);
+        }
+      }
+    } else {
+      for(arrmem of arr) {
+        if(!map.has(func(arrmem))) {
+          map.set(func(arrmem), arrmem);
+        }
+      }
+    }
+    return [...map.values()];
   }
 }
