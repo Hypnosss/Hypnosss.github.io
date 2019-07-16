@@ -854,15 +854,61 @@ var hypnosss = {
     var end = arr.length;
     var mid = Math.floor((start+end)/2);
     while(start < end) {
-      console.log(start, end, mid)
       if(val >= arr[mid]) {
         start = mid + 1;
       } else {
         end = mid;
       }
       mid = Math.floor((start+end)/2);
-      console.log(start, end, mid)
     }
     return mid;
+  },
+  sortedLastIndexBy: function(arr, val, fun) {
+    if(this.isString(func)) {
+      for(let i = 0; i < arr.length; i++) {
+        arr[i] = arr[i][func];
+      }
+      val = val[func];
+    } else {
+      for(let i = 0; i < arr.length; i++) {
+        arr[i] = func(arr[i]);
+      }
+      val = func(val);
+    }
+    return this.sortedLastIndex(arr, val);
+  },
+  union: function(...arrs) {
+    var map = new Map();
+    for(arr of arrs) {
+      for(arrmem of arr) {
+        if(!map.has(arrmem)) {
+          map.set(arrmem, 1);
+        }
+      }
+    }
+    return [... map.keys()];
+  },
+  unionBy: function(...rest) {
+    var func = rest.pop();
+    var arrs = rest;
+    var map = new Map();
+    if(this.isString(func)) {
+      for(arr of arrs) {
+        for(arrmem of arr) {
+          if(!map.has(arrmem[func])) {
+            this.map.set(arrmem[func], arrmem);
+          }
+        }
+      }
+    } else {
+      for(arr of arrs) {
+        for(arrmem of arr) {
+          if(!map.has(func(arrmem))) {
+            this.map.set(func(arrmem), arrmem);
+          }
+        }
+      }
+    }
+    return [...map.values()]; 
   }
 }
