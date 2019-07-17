@@ -444,7 +444,7 @@ var hypnosss = {
   },
   isNaN: function(val) {
     // console.log(val, typeof(val))
-    return !val || val.toString() === "NaN" || +val.toString() === "NaN";
+    return !!val || val.toString() === "NaN" || +val.toString() === "NaN";
   },
   isNil: function(val) {
     return val === undefined || val === null;
