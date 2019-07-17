@@ -459,7 +459,6 @@ var hypnosss = {
   },
   isObject: function(val) {
     var valType =  Object.prototype.toString.call(val);
-    console.log("isobj?" + val + valType)
     return valType.includes("object") && val != null;
   },
   isUndefined: function(val) {
@@ -956,7 +955,7 @@ var hypnosss = {
   },
   isMatch: function(obj, source) {
     for(key in source) {
-      console.log(key, source[key], this.isObject(source[key]))
+      console.log(key, source[key], source[key].toString(), this.isObject(source[key]))
       if(!this.isObject(source[key])) {
         console.log(source[key], obj[key])
         if(source[key] != obj[key]) {
