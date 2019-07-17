@@ -459,6 +459,7 @@ var hypnosss = {
   },
   isObject: function(val) {
     var valType =  Object.prototype.toString.call(val);
+    console.log("isobj?" + val + valType)
     return valType.includes("object") && val != null;
   },
   isUndefined: function(val) {
