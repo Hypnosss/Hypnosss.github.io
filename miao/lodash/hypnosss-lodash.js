@@ -406,9 +406,6 @@ var hypnosss = {
     }
     return len;
   },
-  // isArguments: function a(val) {
-  // 	return val[Symbol.iterator]() && !Array.isArray(val);
-  // },
   isArray: function(arg) {
     return Object.prototype.toString.call(arg) === '[object Array]';
   },
@@ -446,7 +443,7 @@ var hypnosss = {
     return typeof(val) == "function";
   },
   isNaN: function(val) {
-    return !val || val !== val || val.toString() === "NaN";
+    return val.toString() === "NaN" || +val.toString() === "NaN";
   },
   isNil: function(val) {
     return val === undefined || val === null;
@@ -454,7 +451,7 @@ var hypnosss = {
   isNull: function(val) {
     return val === null;
   },
-  isObject: function(val) {
+  isObject: function a(val) {
     var valType =  Object.prototype.toString.call(val);
     return valType.includes("object") && val != null;
   },
