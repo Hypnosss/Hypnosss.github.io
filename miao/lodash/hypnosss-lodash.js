@@ -955,8 +955,7 @@ var hypnosss = {
   },
   isMatch: function(obj, source) {
     for(key in source) {
-      console.log(key, source[key], source[key].toString(), this.isObject(source[key]))
-      if(!this.isObject(source[key])) {
+      if(!source[key].toString().includes("Object")) {
         console.log(source[key], obj[key])
         if(source[key] != obj[key]) {
           return false;
