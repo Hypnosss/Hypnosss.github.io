@@ -413,10 +413,7 @@ var hypnosss = {
     return Object.prototype.toString.call(arg) === '[object Array]';
   },
   isBoolean: function(arg) {
-    if(!arg) {
-      return false;
-    }
-    return (arg === !!arg) || arg.toString() == "true" || arg.toString() == "false";
+    return Object.prototype.toString.call(arg) === '[object Boolean]';
   },
   isNumber: function(arg) {
     return +arg === arg;
@@ -717,9 +714,6 @@ var hypnosss = {
     }
     return ans;
   },
-  negate: function(func) {
-    return func;
-  },
   differenceWith: function(arr, ...rest) {
     if(typeof(rest[rest.length - 1]) === "function") {
       var func = rest.pop();
@@ -956,7 +950,6 @@ var hypnosss = {
   isMatch: function(obj, source) {
     for(key in source) {
       if(!source[key].toString().includes("Object")) {
-        console.log(source[key], obj[key])
         if(source[key] != obj[key]) {
           return false;
         }
