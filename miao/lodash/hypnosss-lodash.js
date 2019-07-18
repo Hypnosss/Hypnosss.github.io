@@ -963,13 +963,19 @@ var hypnosss = {
   },
   matches: function a(obj) {
     return function(arrmem, idx, arr) {
-      var ans = [];
+      var n = 0;
+      var len = 0;
       for(key in obj) {
-        if(arrmem[key] && arrmem[key] === obj[key]) {
-          ans.push(arrmem);
-        }
+        len++;
+        if(arrmem[key] && arrmem[key] !== obj[key]) {
+          continue;
+        } else {
+          n++;
+        } 
       }
-      return ans;
+      // console.log(n, len, arrmem, obj)
+      return len == n; 
     }
   }
 }
+//objects.filter(a({ 'a': 4, 'c': 6 }))
