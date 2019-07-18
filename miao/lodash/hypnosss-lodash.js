@@ -1001,7 +1001,7 @@ var hypnosss = {
           }
           break;
         case "string":
-          console.log(objects[i][pre], !objects[i][pre])
+          console.log(i, objects[i][pre], !objects[i][pre])
           if(!objects[i][pre]) {
             p = i;
             break;
