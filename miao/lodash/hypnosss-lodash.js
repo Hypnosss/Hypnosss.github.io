@@ -1020,6 +1020,6 @@ var hypnosss = {
     }
   },
   dropRightWhile: function(arr, pre) {
-    return this.dropWhile(arr.reverse(), pre);
+    return this.dropWhile(arr.reverse(), pre).reverse();
   }
 }
