@@ -443,7 +443,6 @@ var hypnosss = {
     return typeof(val) == "function";
   },
   isNaN: function a(val) {
-    console.log(val, typeof(val))
     if(val != undefined && val != null) {
       return val.toString() === "NaN";
     }
