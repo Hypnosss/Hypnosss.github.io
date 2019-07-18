@@ -1003,7 +1003,6 @@ var hypnosss = {
             }
             break;
           case "string":
-            console.log(i, objects[i][pre], !objects[i][pre])
             if(!objects[i][pre]) {
               p = i;
               flag = 0;
@@ -1014,12 +1013,13 @@ var hypnosss = {
         break;
       }
     }
-    if(typeof(pre) == "string")
-      console.log(p);
     if(p === -1) {
       return [];
     } else {
       return objects.slice(p);
     }
+  },
+  dropRightWhile: function(arr, pre) {
+    return this.dropWhile(arr.reverse(), pre);
   }
 }
