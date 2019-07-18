@@ -979,34 +979,39 @@ var hypnosss = {
   },
   dropWhile: function(objects, pre) {
     var p = -1;
+    var flag  = 1;
     for(let i = 0; i < objects.length; i++) {
-      switch(typeof(pre)) {
-        case "function":
-          if(!pre(objects[i])) {
-            p = i;
-            break;
-          }
-          break;
-        case "object":
-          if(this.isArray(pre)) {//array
-            if(objects[i][pre[0]] != pre[1]) {
+      if(flag) {
+        switch(typeof(pre)) {
+          case "function":
+            if(!pre(objects[i])) {
               p = i;
-              break;
+              flag = 0;
             }
-          } else {//obj
-            if(!this.matches(pre)(objects[i])) {
-              p = i;
-              break;
-            }
-          }
-          break;
-        case "string":
-          console.log(i, objects[i][pre], !objects[i][pre])
-          if(!objects[i][pre]) {
-            p = i;
             break;
-          }
-          break;
+          case "object":
+            if(this.isArray(pre)) {//array
+              if(objects[i][pre[0]] != pre[1]) {
+                p = i;
+                flag = 0;
+              }
+            } else {//obj
+              if(!this.matches(pre)(objects[i])) {
+                p = i;
+                flag = 0;
+              }
+            }
+            break;
+          case "string":
+            console.log(i, objects[i][pre], !objects[i][pre])
+            if(!objects[i][pre]) {
+              p = i;
+              flag = 0;
+            }
+            break;
+        }
+      } else {
+        break;
       }
     }
     if(typeof(pre) == "string")
