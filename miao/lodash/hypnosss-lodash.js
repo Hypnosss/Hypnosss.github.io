@@ -994,7 +994,7 @@ var hypnosss = {
               break;
             }
           } else {//obj
-            if(!this.matches(pre).call(objects[i])) {
+            if(!this.matches(pre)(objects[i])) {
               p = i;
               break;
             }
