@@ -962,11 +962,11 @@ var hypnosss = {
     return true;
   },
   matches: function a(obj) {
-    return function(arr[idx], idx, arr) {
+    return function(arrmem, idx, arr) {
       var ans = [];
       for(key in obj) {
-        if(arr[idx][key] && arr[idx][key] === obj[key]) {
-          ans.push(arr[idx]);
+        if(arrmem[key] && arrmem[key] === obj[key]) {
+          ans.push(arrmem);
         }
       }
       return ans;
