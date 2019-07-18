@@ -986,17 +986,18 @@ var hypnosss = {
           }
           break;
         case "object":
-          if(this.isArray(pre)) {
+          if(this.isArray(pre)) {//array
             if(objects[i][pre[0]] != pre[1]) {
               p = i;
             }
-          } else {
-            if(!matches(pre).call(objects[i])) {
+          } else {//obj
+            if(!this.matches(pre).call(objects[i])) {
               p = i;
             }
           }
           break;
         case "string":
+          console.log(objects[i][pre], !objects[i][pre])
           if(!objects[i][pre]) {
             p = i;
           }
