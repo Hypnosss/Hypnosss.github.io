@@ -963,6 +963,7 @@ var hypnosss = {
   },
   matches: function a(obj) {
     return function(arrmem, idx, arr) {
+      console.log(arrmem)
       var n = 0;
       var len = 0;
       for(key in obj) {
@@ -983,16 +984,19 @@ var hypnosss = {
         case "function":
           if(!pre(objects[i])) {
             p = i;
+            break;
           }
           break;
         case "object":
           if(this.isArray(pre)) {//array
             if(objects[i][pre[0]] != pre[1]) {
               p = i;
+              break;
             }
           } else {//obj
             if(!this.matches(pre).call(objects[i])) {
               p = i;
+              break;
             }
           }
           break;
@@ -1000,6 +1004,7 @@ var hypnosss = {
           console.log(objects[i][pre], !objects[i][pre])
           if(!objects[i][pre]) {
             p = i;
+            break;
           }
           break;
       }
