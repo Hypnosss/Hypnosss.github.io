@@ -963,7 +963,7 @@ var hypnosss = {
   },
   matches: function a(obj) {
     return function(arrmem, idx, arr) {
-      console.log(arrmem)
+      // console.log(arrmem)
       var n = 0;
       var len = 0;
       for(key in obj) {
@@ -1009,6 +1009,8 @@ var hypnosss = {
           break;
       }
     }
+    if(typeof(pre) == "string")
+      console.log(p);
     if(p === -1) {
       return [];
     } else {
