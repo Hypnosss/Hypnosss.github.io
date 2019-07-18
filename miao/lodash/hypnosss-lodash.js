@@ -1022,8 +1022,48 @@ var hypnosss = {
   dropRightWhile: function(arr, pre) {
     return this.dropWhile(arr.reverse(), pre).reverse();
   },
-  findIndex: function(arr, pre, fidx = 0) {
+  findIndex: function(objects, pre, fidx = 0) {
+    var p = -1;
+    var flag = 1;
     for(let i = fidx; i < objects.length; i++) {
+      if(flag) {
+        switch(typeof(pre)) {
+          case "function":
+            if(pre(objects[i])) {
+              p = i;
+              flag = 0;
+            }
+            break;
+          case "object":
+            if(this.isArray(pre)) {//array
+              if(objects[i][pre[0]] == pre[1]) {
+                p = i;
+                flag = 0;
+              }
+            } else {//obj
+              if(this.matches(pre)(objects[i])) {
+                p = i;
+                flag = 0;
+              }
+            }
+            break;
+          case "string":
+            if(objects[i][pre]) {
+              p = i;
+              flag = 0;
+            }
+            break;
+        }
+      } else {
+        break;
+      }
+    }
+    return p;
+  },
+  findLastIndex: function(objects, pre, fidx = obj.length - 1) {
+    var p = -1;
+    var flag = 1;
+    for(let i = fidx; i >= 0; i--) {
       if(flag) {
         switch(typeof(pre)) {
           case "function":
