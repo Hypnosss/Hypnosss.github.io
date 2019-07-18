@@ -1144,5 +1144,38 @@ var hypnosss = {
       }
     }
     return p == objects.length;
+  },
+  filter: function(objects, pre) {
+    if(!this.isArray(objects)) {
+      objects = [objects];
+    }
+
+    var ans = [];
+    for(let i = 0; i < objects.length; i++) {
+      switch(typeof(pre)) {
+        case "function":
+          if(pre(objects[i])) {
+            ans.push(objects[i]);
+          }
+          break;
+        case "object":
+          if(this.isArray(pre)) {//array
+            if(objects[i][pre[0]] == pre[1]) {
+              ans.push(objects[i]);
+            }
+          } else {//obj
+            if(this.matches(pre)(objects[i])) {
+              ans.push(objects[i]);
+            }
+          }
+          break;
+        case "string":
+          if(objects[i][pre]) {
+            ans.push(objects[i]);
+          }
+          break;
+      }
+    }
+    return ans;
   }
 }
