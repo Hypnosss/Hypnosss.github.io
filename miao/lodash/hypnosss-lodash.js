@@ -959,5 +959,10 @@ var hypnosss = {
       }
     }
     return true;
+  },
+  matches: function() {
+    return function(...rest) {
+      console.log(rest)
+    }
   }
 }
