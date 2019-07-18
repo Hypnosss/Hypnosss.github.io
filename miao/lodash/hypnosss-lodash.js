@@ -962,10 +962,15 @@ var hypnosss = {
     }
     return true;
   },
-  matches: function(...rest1) {
-    console.log(rest1)
-    return function(...rest) {
-      console.log(rest)
+  matches: function a(obj) {
+    return function(arr[idx], idx, arr) {
+      var ans = [];
+      for(key in obj) {
+        if(arr[idx][key] && arr[idx][key] === obj[key]) {
+          ans.push(arr[idx]);
+        }
+      }
+      return ans;
     }
   }
 }
