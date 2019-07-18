@@ -1060,7 +1060,7 @@ var hypnosss = {
     }
     return p;
   },
-  findLastIndex: function(objects, pre, fidx = obj.length - 1) {
+  findLastIndex: function(objects, pre, fidx = objects.length - 1) {
     var p = -1;
     var flag = 1;
     for(let i = fidx; i >= 0; i--) {
@@ -1097,5 +1097,52 @@ var hypnosss = {
       }
     }
     return p;
+  },
+  every: function(objects, pre) {
+    if(!this.isArray(objects)) {
+      objects = [objects];
+    }
+    var p = 0;
+    var flag = 1;
+    for(let i = 0; i < objects.length; i++) {
+      if(flag) {
+        switch(typeof(pre)) {
+          case "function":
+            if(pre(objects[i])) {
+              p ++;
+            } else {
+              flag = 0;
+            }
+            break;
+          case "object":
+            if(this.isArray(pre)) {//array
+              if(objects[i][pre[0]] == pre[1]) {
+                p ++;
+
+              } else {
+                flag = 0;
+              }
+            } else {//obj
+              if(this.matches(pre)(objects[i])) {
+                p ++;
+
+              } else {
+                flag = 0;
+              }
+            }
+            break;
+          case "string":
+            if(objects[i][pre]) {
+              p ++;
+            } else {
+              flag = 0;
+            }
+            break;
+        }
+      } else {
+        break;
+      }
+    }
+    return p == objects.length;
   }
 }
