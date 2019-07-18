@@ -447,6 +447,7 @@ var hypnosss = {
     if(val != undefined && val != null) {
       return val.toString() === "NaN";
     }
+    return false;
   },
   isNil: function(val) {
     return val === undefined || val === null;
@@ -961,7 +962,8 @@ var hypnosss = {
     }
     return true;
   },
-  matches: function() {
+  matches: function(...rest1) {
+    console.log(rest1)
     return function(...rest) {
       console.log(rest)
     }
