@@ -973,9 +973,40 @@ var hypnosss = {
           n++;
         } 
       }
-      // console.log(n, len, arrmem, obj)
       return len == n; 
+    }
+  },
+  dropWhile: function(objects, pre) {
+    var p = -1;
+    for(let i = 0; i < objects.length; i++) {
+      switch(typeof(pre)) {
+        case "function":
+          if(!pre(objects[i])) {
+            p = i;
+          }
+          break;
+        case "object":
+          if(this.isArray(pre)) {
+            if(objects[i][pre[0]] != pre[1]) {
+              p = i;
+            }
+          } else {
+            if(!matches(pre).call(objects[i])) {
+              p = i;
+            }
+          }
+          break;
+        case "string":
+          if(!objects[i][pre]) {
+            p = i;
+          }
+          break;
+      }
+    }
+    if(p === -1) {
+      return [];
+    } else {
+      return objects.slice(p);
     }
   }
 }
-//objects.filter(a({ 'a': 4, 'c': 6 }))
