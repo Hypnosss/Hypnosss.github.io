@@ -1301,9 +1301,14 @@ var hypnosss = {
   },
   reduce: function(collection, func, start) {
     var idx = 0;
-    var ans;
-    for(co of collection) {
-      ans = func(start, co, idx++, collection)
+    var ans = start;
+    if(this.isArray(collection)) {
+      for(co of collection) {
+        ans = func(ans, co, idx++, collection);
+      }
+    } else {
+      for(key in collection)
+      ans = func(ans, collection[key], key, collection);
     }
     return ans;
   }
