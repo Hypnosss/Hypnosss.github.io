@@ -1177,5 +1177,43 @@ var hypnosss = {
       }
     }
     return ans;
+  },
+  find: function(objects, pre, fidx = 0) {
+    if(!this.isArray(objects)) {
+      objects = [objects];
+    }
+    for(let i = fidx; i < objects.length; i++) {
+      switch(typeof(pre)) {
+        case "function":
+          if(pre(objects[i])) {
+            return objects[i];
+          }
+          break;
+        case "object":
+          if(this.isArray(pre)) {//array
+            if(objects[i][pre[0]] == pre[1]) {
+              return objects[i];
+            }
+          } else {//obj
+            if(this.matches(pre)(objects[i])) {
+              return objects[i];
+            }
+          }
+          break;
+        case "string":
+          if(objects[i][pre]) {
+            return objects[i];
+          }
+          break;
+      }
+    }
+  },
+  flatMap: function(collection, func) {
+    var ans = [];
+    var idx = 0;
+    for(co of collection) {
+      ans.concat(func(co, idx++, collection));
+    }
+    return ans;
   }
 }
