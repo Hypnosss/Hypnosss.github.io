@@ -1212,8 +1212,7 @@ var hypnosss = {
     var ans = [];
     var idx = 0;
     for(co of collection) {
-      console.log(func(co, idx++, collection))
-      ans.concat(func(co, idx++, collection));
+      ans = ans.concat(func(co, idx++, collection));
     }
     return ans;
   }
