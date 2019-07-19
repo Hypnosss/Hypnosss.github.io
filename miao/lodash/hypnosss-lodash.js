@@ -1316,7 +1316,7 @@ var hypnosss = {
   reduceRight: function(collection, func, start = 0) {
     var ans = start;
     if(this.isArray(collection)) {
-      for(let i = 0; i < collection.length; i++) {
+      for(let i = collection.length - 1; i >= 0; i--) {
         ans = func(ans, collection[i], i, collection)
       }
     } else {
@@ -1325,5 +1325,88 @@ var hypnosss = {
       }
     }
     return ans;
+  },
+  reject: function(objects, pre) {
+    if(!this.isArray(objects)) {
+      objects = [objects];
+    }
+
+    var ans = [];
+    for(let i = 0; i < objects.length; i++) {
+      switch(typeof(pre)) {
+        case "function":
+          if(!pre(objects[i])) {
+            ans.push(objects[i]);
+          }
+          break;
+        case "object":
+          if(this.isArray(pre)) {//array
+            if(!objects[i][pre[0]] == pre[1]) {
+              ans.push(objects[i]);
+            }
+          } else {//obj
+            if(!this.matches(pre)(objects[i])) {
+              ans.push(objects[i]);
+            }
+          }
+          break;
+        case "string":
+          if(!objects[i][pre]) {
+            ans.push(objects[i]);
+          }
+          break;
+      }
+    }
+    return ans;
+  },
+  some: function(objects, pre) {
+    if(!this.isArray(objects)) {
+      objects = [objects];
+    }
+    var p = 0;
+    var flag = 1;
+    for(let i = 0; i < objects.length; i++) {
+      if(flag) {
+        switch(typeof(pre)) {
+          case "function":
+            if(!pre(objects[i])) {
+              p ++;
+            } else {
+              flag = 0;
+            }
+            break;
+          case "object":
+            if(this.isArray(pre)) {//array
+              if(!objects[i][pre[0]] == pre[1]) {
+                p ++;
+              } else {
+                flag = 0;
+              }
+            } else {//obj
+              if(!this.matches(pre)(objects[i])) {
+                p ++;
+              } else {
+                flag = 0;
+              }
+            }
+            break;
+          case "string":
+            if(!objects[i][pre]) {
+              p ++;
+            } else {
+              flag = 0;
+            }
+            break;
+        }
+      } else {
+        break;
+      }
+    }
+    return p == objects.length;
+  },
+  defer: function(func, ...rest) {
+    return setTimeout(function(rest) {
+      func(rest);
+    }, 0);
   }
 }
