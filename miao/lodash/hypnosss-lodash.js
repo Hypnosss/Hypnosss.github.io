@@ -1241,7 +1241,8 @@ var hypnosss = {
         midAns = newmidAns;
         newmidAns = [];
       }
+      ans = ans.concat(midAns);
     }
-    return midAns;
+    return ans;
   }
 }
