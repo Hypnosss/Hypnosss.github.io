@@ -1259,7 +1259,10 @@ var hypnosss = {
     }
     return ans;
   },
-  partition: function(collection, pre) {
+  partition: function(objects, pre) {
+    if(!this.isArray(objects)) {
+      objects = [objects];
+    }
     var tarr = [], farr = [];
     switch(typeof(pre)) {
       case "function":
