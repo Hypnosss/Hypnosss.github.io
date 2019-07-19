@@ -1245,5 +1245,53 @@ var hypnosss = {
       ans.push(midAns);
     }
     return ans;
+  },
+  keyBy: function(collection, func) {
+    var ans = {};
+    if(this.isString(func)) {//str
+      for(co of collection) {
+        ans[co[func]] = co;
+      }
+    } else {
+      for(co of collection) {
+        ans[func(co)] = co;
+      }
+    }
+    return ans;
+  },
+  partition: function(collection, pre) {
+    var tarr = [], farr = [];
+    switch(typeof(pre)) {
+      case "function":
+        if(pre(objects[i])) {
+          tarr.push(objects[i]);
+        } else {
+          farr.push(objects[i]);
+        }
+        break;
+      case "object":
+        if(this.isArray(pre)) {//array
+          if(objects[i][pre[0]] == pre[1]) {
+            tarr.push(objects[i]);
+          } else {
+            farr.push(objects[i]);
+          }
+        } else {//obj
+          if(this.matches(pre)(objects[i])) {
+            tarr.push(objects[i]);
+          } else {
+            farr.push(objects[i]);
+          }
+        }
+        break;
+      case "string":
+        if(objects[i][pre]) {
+          tarr.push(objects[i]);
+        } else {
+          farr.push(objects[i]);
+        }
+        break;
+    }
   }
+  return [tarr, farr];
 }
