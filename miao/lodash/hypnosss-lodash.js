@@ -1242,7 +1242,7 @@ var hypnosss = {
         newmidAns = [];
       }
       // console.log()
-      ans = ans.push(midAns);
+      ans.push(midAns);
     }
     return ans;
   }
