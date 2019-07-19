@@ -1209,11 +1209,39 @@ var hypnosss = {
     }
   },
   flatMap: function(collection, func) {
+    if(!this.isArray(collection)) {
+      collection = [collection];
+    }
     var ans = [];
     var idx = 0;
     for(co of collection) {
       ans = ans.concat(func(co, idx++, collection));
     }
     return ans;
+  },
+  flatMapDepth: function(collection, func, depth = 1) {
+    if(!this.isArray(collection)) {
+      collection = [collection];
+    }
+    var ans = [];
+    var midAns, newmidAns;
+    for(let i = 0; i < collection.length; i++) {
+      midAns = func(collection[i]);
+      newmidAns = [];
+      for(let j = 0; j < depth; j++) {
+        for(midAnsMem of midAns) {
+          if(this.isArray(midAnsMem)) {
+            for(midAnsMmem of midAnsMem) {
+              newmidAns.push(midAnsMmem);
+            }
+          } else {
+            newmidAns.push(midAnsMem);
+          }
+        }
+        midAns = newmidAns;
+        newmidAns = [];
+      }
+    }
+    return midAns;
   }
 }
