@@ -1299,7 +1299,7 @@ var hypnosss = {
     }
     return [tarr, farr];
   },
-  reduce: function(collection, func, start) {
+  reduce: function(collection, func, start = 0) {
     var idx = 0;
     var ans = start;
     if(this.isArray(collection)) {
@@ -1307,8 +1307,22 @@ var hypnosss = {
         ans = func(ans, co, idx++, collection);
       }
     } else {
-      for(key in collection)
-      ans = func(ans, collection[key], key, collection);
+      for(key in collection) {
+        ans = func(ans, collection[key], key, collection);
+      }
+    }
+    return ans;
+  },
+  reduceRight: function(collection, func, start = 0) {
+    var ans = start;
+    if(this.isArray(collection)) {
+      for(let i = 0; i < collection.length; i++) {
+        ans = func(ans, collection[i], i, collection)
+      }
+    } else {
+      for(key in collection) {
+        ans = func(ans, collection[key], key, collection);
+      }
     }
     return ans;
   }
