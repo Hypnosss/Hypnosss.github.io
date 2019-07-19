@@ -1264,37 +1264,47 @@ var hypnosss = {
       objects = [objects];
     }
     var tarr = [], farr = [];
-    switch(typeof(pre)) {
-      case "function":
-        if(pre(objects[i])) {
-          tarr.push(objects[i]);
-        } else {
-          farr.push(objects[i]);
-        }
-        break;
-      case "object":
-        if(this.isArray(pre)) {//array
-          if(objects[i][pre[0]] == pre[1]) {
+    for(let i = 0; i < objects.length; i++) {
+      switch(typeof(pre)) {
+        case "function":
+          if(pre(objects[i])) {
             tarr.push(objects[i]);
           } else {
             farr.push(objects[i]);
           }
-        } else {//obj
-          if(this.matches(pre)(objects[i])) {
+          break;
+        case "object":
+          if(this.isArray(pre)) {//array
+            if(objects[i][pre[0]] == pre[1]) {
+              tarr.push(objects[i]);
+            } else {
+              farr.push(objects[i]);
+            }
+          } else {//obj
+            if(this.matches(pre)(objects[i])) {
+              tarr.push(objects[i]);
+            } else {
+              farr.push(objects[i]);
+            }
+          }
+          break;
+        case "string":
+          if(objects[i][pre]) {
             tarr.push(objects[i]);
           } else {
             farr.push(objects[i]);
           }
-        }
-        break;
-      case "string":
-        if(objects[i][pre]) {
-          tarr.push(objects[i]);
-        } else {
-          farr.push(objects[i]);
-        }
-        break;
+          break;
+      }
     }
     return [tarr, farr];
-  } 
+  },
+  reduce: function(collection, func, start) {
+    var idx = 0;
+    var ans;
+    for(co of collection) {
+      ans = func(start, co, idx++, collection)
+    }
+    return ans;
+  }
 }
