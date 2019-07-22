@@ -1490,5 +1490,32 @@ var hypnosss = {
       }
     } 
     return sum;
+  },
+  findKey: function(objects, pre) {
+    for(let i = 0; i < objects.length; i++) {
+      switch(typeof(pre)) {
+        case "function":
+          if(pre(objects[i])) {
+            return objects[i];
+          }
+          break;
+        case "object":
+          if(this.isArray(pre)) {//array
+            if(objects[i][pre[0]] == pre[1]) {
+              return objects[i];
+            }
+          } else {//obj
+            if(!this.matches(pre)(objects[i])) {
+              return objects[i];
+            }
+          }
+          break;
+        case "string":
+          if(!objects[i][pre]) {
+            return objects[i];
+          }
+          break;
+      }
+    }
   }
 }
