@@ -1432,6 +1432,11 @@ var hypnosss = {
   },
   isEqual: function a(val1, val2) {
     console.log(val1, Object.prototype.toString.call(val1))
+    if(type.includes("Number") || type.includes("String")) {
+      if(val1[key] !== val2[key]) {
+        return false;
+      }
+    }
     var len1 = 0, len2 = 0;
     for(key in val1) {
       len1++;
@@ -1444,14 +1449,8 @@ var hypnosss = {
     }
     for(key in val1) {
       var type = Object.prototype.toString.call(val1[key]);
-      if(type.includes("Number") || type.includes("String")) {
-        if(val1[key] !== val2[key]) {
-          return false;
-        }
-      } else {
-        if(!this.isEqual(val1[key], val2[key])) {
-          return false;
-        }
+      if(!this.isEqual(val1[key], val2[key])) {
+        return false;
       }
     }
     return true;
