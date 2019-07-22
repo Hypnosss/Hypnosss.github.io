@@ -1402,7 +1402,7 @@ var hypnosss = {
         break;
       }
     }
-    return p == objects.length;
+    return p > 0;
   },
   defer: function(func, ...rest) {
     return setTimeout(function(rest) {
