@@ -1448,7 +1448,7 @@ var hypnosss = {
       // if(!this.isEqual(val1[key], val2[key])) {
       //   return false;
       // }
-      console.log(val1[key], Object.prototype.toString.call(val1[key]));
+      // console.log(val1[key], Object.prototype.toString.call(val1[key]));
     }
     return true;
   },
@@ -1517,5 +1517,12 @@ var hypnosss = {
           break;
       }
     }
+  },
+  keys: function(obj) {
+    var ans = [];
+    for(key in obj) {
+      ans.push(key);
+    }
+    return ans;
   }
 }
