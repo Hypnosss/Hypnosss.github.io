@@ -1434,7 +1434,7 @@ var hypnosss = {
     console.log(val1, Object.prototype.toString.call(val1))
     var type = Object.prototype.toString.call(val1[key]);
     if(type.includes("Number") || type.includes("String")) {
-      if(val1[key] !== val2[key]) {
+      if(val1 !== val2) {
         return false;
       }
     }
