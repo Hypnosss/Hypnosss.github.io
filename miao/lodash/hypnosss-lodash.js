@@ -1450,14 +1450,17 @@ var hypnosss = {
           return false;
         }
       }
+      if(val1[key] != val2[key]) {
+        return false;
+      }
     }
     return true;
   },
   isError: function(val) {
-    return Object.prototype.toString.call(val);
+    return Object.prototype.toString.call(val)==="[object Error]";
   },
   isRegExp: function(val) {
-    return Object.prototype.toString.call(val);
+    return Object.prototype.toString.call(val)==="[object RegExp]";
   },
   maxBy: function(arr, func) {
     if(this.isString(func)) {
