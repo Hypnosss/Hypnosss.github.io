@@ -1447,7 +1447,7 @@ var hypnosss = {
       if(!val2[key]) {
         return false;
       }
-      if(this.isObject(val1[key])) {
+      if(this.isObject(val1[key]) && !Object.prototype.toString.call(val1[key]).includes("String")) {
         if(this.isFunction(val1[key])) {
           if(val1[key] !== val2[key]) {
             return false;
