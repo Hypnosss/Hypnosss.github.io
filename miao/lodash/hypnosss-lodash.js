@@ -1444,17 +1444,11 @@ var hypnosss = {
       return false;
     }
     for(key in val1) {
-      var type = Object.prototype.toString.call(val1[key]);
-      if(type.includes("Number") || type.includes("String")) {
-        if(val1 !== val2) {
-          return false;
-        } else {
-          return true;
-        }
-      }
-      if(!this.isEqual(val1[key], val2[key])) {
-        return false;
-      }
+      // var type = Object.prototype.toString.call(val1[key]);
+      // if(!this.isEqual(val1[key], val2[key])) {
+      //   return false;
+      // }
+      console.log(val1[key], Object.prototype.toString.call(val1[key]));
     }
     return true;
   },
