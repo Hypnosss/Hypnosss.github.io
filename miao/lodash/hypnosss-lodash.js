@@ -1414,8 +1414,8 @@ var hypnosss = {
       func(rest);
     }, wait);
   },
-  isArgument: function(val) {
-    return Object.prototype.toString.call(val) === "[object Argument]";
+  isArguments: function(val) {
+    return Object.prototype.toString.call(val) === "[object Arguments]";
   },
   isElement: function(val) {
     return Object.prototype.toString.call(val) === "[object Element]";
