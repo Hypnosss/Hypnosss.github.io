@@ -1430,34 +1430,39 @@ var hypnosss = {
     }
     return i == 0;
   },
-  // isEqual: function(val1, val2) {
-  //   console.log(val1, val2)
-  //   var len1 = 0, len2 = 0;
-  //   for(key in val1) {
-  //     len1++;
-  //   }
-  //   for(key in val2) {
-  //     len2++;
-  //   }
-  //   if(len1 != len2) {
-  //     return false;
-  //   }
-  //   for(key in val1) {
-  //     console.log(key, val1[key], val2[key], this.isObject(val1[key]))
-  //     if(!val2[key]) {
-  //       return false;
-  //     }
-  //     if(this.isObject(val1[key])) {
-  //       if(!this.isEqual(val1[key], val2[key])) {
-  //         return false;
-  //       }
-  //     }
-  //     if(val1[key] != val2[key]) {
-  //       return false;
-  //     }
-  //   }
-  //   return true;
-  // },
+  isEqual: function(val1, val2) {
+    console.log(val1, val2)
+    var len1 = 0, len2 = 0;
+    for(key in val1) {
+      len1++;
+    }
+    for(key in val2) {
+      len2++;
+    }
+    if(len1 != len2) {
+      return false;
+    }
+    for(key in val1) {
+      console.log(key, val1[key], val2[key], this.isObject(val1[key]))
+      if(!val2[key]) {
+        return false;
+      }
+      if(this.isObject(val1[key])) {
+        if(this.isFunction(val1[key])) {
+          if(val1[key] !== val2[key]) {
+            return false;
+          }
+        }
+        if(!this.isEqual(val1[key], val2[key])) {
+          return false;
+        }
+      }
+      if(val1[key] != val2[key]) {
+        return false;
+      }
+    }
+    return true;
+  },
   isError: function(val) {
     return Object.prototype.toString.call(val)==="[object Error]";
   },
