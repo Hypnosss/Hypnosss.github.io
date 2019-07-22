@@ -1459,4 +1459,26 @@ var hypnosss = {
   isRegExp: function(val) {
     return Object.prototype.toString.call(val);
   },
+  maxBy: function(arr, func) {
+    if(this.isString(func)) {
+      var maxobj = arr[0];
+      var max = maxobj[func];
+      for(object of arr) {
+        if(object[func] > max) {
+          maxobj = object;
+          max = maxobj[func];
+        }
+      }
+    } else {
+      var maxobj = arr[0];
+      var max = func(maxobj);
+      for(object of arr) {
+        if(func(object) > max) {
+          maxobj = object;
+          max = func(maxobj);
+        }
+      }
+    }
+    return maxobj;
+  }
 }
