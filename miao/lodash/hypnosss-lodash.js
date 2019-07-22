@@ -1441,7 +1441,8 @@ var hypnosss = {
     if(len1 != len2) {
       return false;
     }
-    for(key in val1){
+    for(key in val1) {
+      console.log(key, val1[key], val2[key], this.isObject(val1[key]))
       if(!val2[key]) {
         return false;
       }
