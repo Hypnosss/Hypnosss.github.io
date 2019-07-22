@@ -1413,5 +1413,17 @@ var hypnosss = {
     return setTimeout(function(rest) {
       func(rest);
     }, wait);
+  },
+  isArgument: function(val) {
+    return Object.prototype.toString.call(val) === "[object Argument]";
+  },
+  isElement: function(val) {
+    return Object.prototype.toString.call(val) === "[object Element]";
+  },
+  isDate: function(val) {
+    return Object.prototype.toString.call(val) === "[object Date]";
+  },
+  isEmpty: function(val) {
+    return Object.prototype.toString.call(val);
   }
 }
