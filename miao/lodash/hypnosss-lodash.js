@@ -1484,5 +1484,16 @@ var hypnosss = {
       }
     }
     return maxobj;
+  },
+  sumBy: function(arr, func) {
+    var sum = 0;
+    for(obj of arr) {
+      if(this.isString(func)) {
+        sum += obj[sum];
+      } else {
+        sum += func(obj);
+      }
+    } 
+    return sum;
   }
 }
