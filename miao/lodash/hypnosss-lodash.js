@@ -1431,6 +1431,7 @@ var hypnosss = {
     return i == 0;
   },
   isEqual: function(val1, val2) {
+    console.log(val1, val2)
     var len1 = 0, len2 = 0;
     for(key in val1) {
       len1++;
@@ -1489,7 +1490,7 @@ var hypnosss = {
     var sum = 0;
     for(obj of arr) {
       if(this.isString(func)) {
-        sum += obj[sum];
+        sum += obj[func];
       } else {
         sum += func(obj);
       }
