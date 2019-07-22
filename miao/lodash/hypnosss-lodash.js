@@ -1402,11 +1402,16 @@ var hypnosss = {
         break;
       }
     }
-    return p > 0;
+    return !(p == objects.length);
   },
   defer: function(func, ...rest) {
     return setTimeout(function(rest) {
       func(rest);
     }, 0);
+  },
+  delay: function(func, wait, ...rest) {
+    return setTimeout(function(rest) {
+      func(rest);
+    }, wait);
   }
 }
