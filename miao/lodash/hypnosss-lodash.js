@@ -1431,7 +1431,7 @@ var hypnosss = {
     return i == 0;
   },
   isEqual: function a(val1, val2) {
-    console.log(val1, Object.prototype.toString.call(val1))
+    // console.log(val1, Object.prototype.toString.call(val1))
     
     var len1 = 0, len2 = 0;
     for(key in val1) {
