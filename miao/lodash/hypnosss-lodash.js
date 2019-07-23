@@ -1445,10 +1445,11 @@ var hypnosss = {
     }
 
     if(len1 === 0) {//num
-      if(val1[key].valueOf() !== val2[key].valueOf()) {
+      if(val1.valueOf() !== val2.valueOf()) {
         return false;
       }
     }
+
     for(key in val1) {
       var type = Object.prototype.toString.call(val1[key]);
       if(type.includes("Object") || type.includes("Array")) {
