@@ -1493,6 +1493,7 @@ var hypnosss = {
   },
   findKey: function(objects, pre) {
     for(let i = 0; i < objects.length; i++) {
+      console.log(objects[i])
       switch(typeof(pre)) {
         case "function":
           if(pre(objects[i])) {
@@ -1521,7 +1522,9 @@ var hypnosss = {
   keys: function(obj) {
     var ans = [];
     for(key in obj) {
-      ans.push(key);
+      if(obj.hasOwnProperty(key)) {
+        ans.push(key);
+      }
     }
     return ans;
   }
