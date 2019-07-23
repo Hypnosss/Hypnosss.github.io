@@ -1592,5 +1592,38 @@ var hypnosss = {
       })
     }
     return obj;
+  },
+  negate: function(func) {
+    return function() {
+      return !func();
+    }
+  },
+  once: function(func) {
+    var n = 1;
+    return function() {
+      if(n > 0) {
+        n--;
+        return func();
+      }
+    }
+  },
+  spread: function(func, start = 0) {
+    return function(...rest) {
+      var args = [];
+      for(let i = start; i < rest.length; i++) {
+        args.push(rest[i]);
+      }
+      func.apply(null, args);
+    }
+  },
+  curry: function(func, num) {
+    return function(...rest) {
+      func.apply(rest);
+    }
+  },
+  constant: function(val) {
+    return function() {
+      return val;
+    }
   }
 }
