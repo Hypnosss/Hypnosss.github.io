@@ -1581,5 +1581,16 @@ var hypnosss = {
       }
     }
     return obj;
+  },
+  bindAll: function(obj, strs) {
+    if(this.isString(strs)) {
+      strs = [strs];
+    }
+    for(str of strs) {
+      document.addEventListener(str, function() {
+        obj[str];
+      })
+    }
+    return obj;
   }
 }
