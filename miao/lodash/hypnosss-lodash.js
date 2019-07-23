@@ -1504,28 +1504,28 @@ var hypnosss = {
     return sum;
   },
   findKey: function(objects, pre) {
-    for(let i = 0; i < objects.length; i++) {
-      console.log(objects[i])
+    for(key in objects) {
+      console.log(objects[key])
       switch(typeof(pre)) {
         case "function":
-          if(pre(objects[i])) {
-            return objects[i];
+          if(pre(objects[key])) {
+            return objects[key];
           }
           break;
         case "object":
           if(this.isArray(pre)) {//array
-            if(objects[i][pre[0]] == pre[1]) {
-              return objects[i];
+            if(objects[key][pre[0]] == pre[1]) {
+              return objects[key];
             }
           } else {//obj
-            if(!this.matches(pre)(objects[i])) {
-              return objects[i];
+            if(!this.matches(pre)(objects[key])) {
+              return objects[key];
             }
           }
           break;
         case "string":
-          if(!objects[i][pre]) {
-            return objects[i];
+          if(!objects[key][pre]) {
+            return objects[key];
           }
           break;
       }
