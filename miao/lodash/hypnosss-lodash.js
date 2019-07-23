@@ -1508,28 +1508,28 @@ var hypnosss = {
     return sum;
   },
   findKey: function(objects, pre) {
-    for(key in objects) {
-      console.log(objects[key])
+    for(myKey in objects) {
+      // console.log(objects[myKey])
       switch(typeof(pre)) {
         case "function":
-          if(pre(objects[key])) {
-            return key;
+          if(pre(objects[myKey])) {
+            return myKey;
           }
           break;
         case "object":
           if(this.isArray(pre)) {//array
-            if(objects[key][pre[0]] == pre[1]) {
-              return key;
+            if(objects[myKey][pre[0]] == pre[1]) {
+              return myKey;
             }
           } else {//obj
-            if(this.matches(pre)(objects[key])) {
-              return key;
+            if(this.matches(pre)(objects[myKey])) {
+              return myKey;
             }
           }
           break;
         case "string":
-          if(objects[key][pre]) {
-            return key;
+          if(objects[myKey][pre]) {
+            return myKey;
           }
           break;
       }
