@@ -1446,7 +1446,7 @@ var hypnosss = {
 
     if(len1 === 0) {//num
       if(this.isObject(val1)) {//空对象
-        continue;
+        return true;
       }
       if(val1.valueOf() !== val2.valueOf()) {
         return false;
