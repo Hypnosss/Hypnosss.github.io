@@ -1443,11 +1443,23 @@ var hypnosss = {
     if(len1 != len2) {
       return false;
     }
+
+    if(len1 === 0) {//num
+      if(val1[key].valueOf() !== val2[key].valueOf()) {
+        return false;
+      }
+    }
     for(key in val1) {
-      // var type = Object.prototype.toString.call(val1[key]);
-      // if(!this.isEqual(val1[key], val2[key])) {
-      //   return false;
-      // }
+      var type = Object.prototype.toString.call(val1[key]);
+      if(type.includes("Object") || type.includes("Array")) {
+        if(!this.isEqual(val1[key], val2[key])) {
+          return false;
+        }
+      } else {
+        if(val1[key].valueOf() !== val2[key].valueOf()) {
+          return false;
+        }
+      }
       // console.log(val1[key], Object.prototype.toString.call(val1[key]));
     }
     return true;
