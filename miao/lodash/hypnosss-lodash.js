@@ -1552,7 +1552,7 @@ var hypnosss = {
     }
     return obj;
   },
-  assignIn: function(obj, ...sources) {
+  defaults: function(obj, ...sources) {
     var ans = {};
     for(source of sources) {
       for(key in source) {
@@ -1564,4 +1564,10 @@ var hypnosss = {
     }
     return ans;
   },
+  mapKeys: function(obj, func) {
+    for(key in obj) {
+      key = func(obj[key], key, obj);
+    }
+    return obj;
+  }
 }
