@@ -1574,7 +1574,11 @@ var hypnosss = {
   },
   mapValues: function(obj, func) {
     for(key in obj) {
-      obj[key] = func(obj[key], key, obj);
+      if(this.isString(func)) {
+        obj[key] = obj[key][func];
+      } else {
+        obj[key] = func(obj[key], key, obj);
+      }
     }
     return obj;
   }
