@@ -1445,6 +1445,9 @@ var hypnosss = {
     }
 
     if(len1 === 0) {//num
+      if(this.isObject(val1)) {//空对象
+        continue;
+      }
       if(val1.valueOf() !== val2.valueOf()) {
         return false;
       }
@@ -1510,23 +1513,23 @@ var hypnosss = {
       switch(typeof(pre)) {
         case "function":
           if(pre(objects[key])) {
-            return objects[key];
+            return key;
           }
           break;
         case "object":
           if(this.isArray(pre)) {//array
             if(objects[key][pre[0]] == pre[1]) {
-              return objects[key];
+              return key;
             }
           } else {//obj
             if(!this.matches(pre)(objects[key])) {
-              return objects[key];
+              return key;
             }
           }
           break;
         case "string":
           if(!objects[key][pre]) {
-            return objects[key];
+            return key;
           }
           break;
       }
