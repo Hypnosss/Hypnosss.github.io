@@ -1543,5 +1543,25 @@ var hypnosss = {
       }
     }
     return ans;
-  }
+  },
+  assignIn: function(obj, ...sources) {
+    for(source of sources) {
+      for(key in source) {
+        obj[key] = source[key];
+      }
+    }
+    return obj;
+  },
+  assignIn: function(obj, ...sources) {
+    var ans = {};
+    for(source of sources) {
+      for(key in source) {
+        ans[key] = source[key];
+      }
+    }
+    for(key in obj) {
+      ans[key] = obj[key];
+    }
+    return ans;
+  },
 }
