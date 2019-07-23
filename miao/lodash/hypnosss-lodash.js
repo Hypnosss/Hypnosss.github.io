@@ -1565,8 +1565,16 @@ var hypnosss = {
     return ans;
   },
   mapKeys: function(obj, func) {
+    var ans = {};
     for(key in obj) {
-      key = func(obj[key], key, obj);
+      var funcRes = func(obj[key], key, obj);
+      ans[funcRes] = obj[key];
+    }
+    return ans;
+  },
+  mapValues: function(obj, func) {
+    for(key in obj) {
+      obj[key] = func(obj[key], key, obj);
     }
     return obj;
   }
