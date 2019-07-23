@@ -1445,7 +1445,7 @@ var hypnosss = {
     }
 
     if(len1 === 0) {//num
-      if(this.isObject(val1)) {//空对象
+      if(Object.prototype.toString.call(val1).includes("Object")) {//空对象
         return true;
       }
       if(val1.valueOf() !== val2.valueOf()) {
@@ -1522,13 +1522,13 @@ var hypnosss = {
               return key;
             }
           } else {//obj
-            if(!this.matches(pre)(objects[key])) {
+            if(this.matches(pre)(objects[key])) {
               return key;
             }
           }
           break;
         case "string":
-          if(!objects[key][pre]) {
+          if(objects[key][pre]) {
             return key;
           }
           break;
